@@ -15,7 +15,6 @@ const ContactSection = () => {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,22 +23,25 @@ const ContactSection = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-      setIsSubmitting(false);
-    }, 1500);
+    // Construct email mailto URL with form data
+    const subject = encodeURIComponent(formData.subject || "Contact from Portfolio Website");
+    const body = encodeURIComponent(
+      `Hello Tarshi,\n\n${formData.message}\n\n` +
+      `From: ${formData.name}\n` +
+      `Email: ${formData.email}\n`
+    );
+    
+    // Open user's default email client
+    window.location.href = `mailto:tarshiwilliams476@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Show confirmation toast
+    toast({
+      title: "Email client opened",
+      description: "Your message has been prepared to send via your email client.",
+    });
+    
+    // No need to reset form as the user might want to modify their message in their email client
   };
   
   const socialLinks = [
@@ -159,10 +161,9 @@ const ContactSection = () => {
               
               <Button 
                 type="submit" 
-                className="w-full bg-portfolio-primary hover:bg-portfolio-primary/90"
-                disabled={isSubmitting}
+                className="w-full bg-portfolio-primary hover:bg-portfolio-primary/90 flex items-center justify-center gap-2"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                <Mail className="h-4 w-4" /> Send Message
               </Button>
             </form>
           </AnimationWrapper>
