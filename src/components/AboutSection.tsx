@@ -18,7 +18,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="w-full aspect-square relative z-10">
                 <img 
-                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80" 
+                  src="/images/wallispc.jpg" 
                   alt="Tarshi Williams working"
                   className="w-full h-full object-cover rounded-lg shadow-lg"
                 />

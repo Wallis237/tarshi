@@ -45,10 +45,10 @@ const ContactSection = () => {
   };
   
   const socialLinks = [
-    { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, href: 'https://linkedin.com' },
-    { name: 'GitHub', icon: <Github className="h-5 w-5" />, href: 'https://github.com' },
-    { name: 'Facebook', icon: <Facebook className="h-5 w-5" />, href: 'https://facebook.com' },
-    { name: 'Instagram', icon: <Instagram className="h-5 w-5" />, href: 'https://instagram.com' },
+    { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, href: 'https://www.linkedin.com/in/tarshiwilliams' },
+    { name: 'GitHub', icon: <Github className="h-5 w-5" />, href: 'https://github.com/Wallis237' },
+    { name: 'Facebook', icon: <Facebook className="h-5 w-5" />, href: 'https://www.facebook.com/tarshi.william' },
+    { name: 'Instagram', icon: <Instagram className="h-5 w-5" />, href: 'https://www.instagram.com/tarshiwilliams?igsh=YzkxczVjY29pcm42' },
   ];
   
   return (

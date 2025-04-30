@@ -52,7 +52,7 @@ const HeroSection = () => {
             <div className="relative w-full max-w-md aspect-square">
               <div className="absolute inset-0 bg-portfolio-primary/20 rounded-full -translate-x-4 -translate-y-4"></div>
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+                src="/images/wallisphocap.jpg"
                 alt="Tarshi Williams"
                 className="rounded-full w-full h-full object-cover relative z-10 border-4 border-white shadow-xl"
               />

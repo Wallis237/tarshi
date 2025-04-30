@@ -22,7 +22,7 @@ const Footer = () => {
           
           <div className="flex gap-4">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/tarshiwilliams"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
@@ -31,7 +31,7 @@ const Footer = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/Wallis237"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
@@ -40,7 +40,7 @@ const Footer = () => {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/tarshi.william"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
@@ -49,7 +49,7 @@ const Footer = () => {
               <Facebook className="h-5 w-5" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/tarshiwilliams?igsh=YzkxczVjY29pcm42"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
