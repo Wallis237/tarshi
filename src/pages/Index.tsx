@@ -23,10 +23,9 @@ const Index = () => {
     // This will force all images to reload
     const images = document.querySelectorAll('img');
     images.forEach(img => {
+      // Apply cache busting to all images
       const currentSrc = img.src;
-      if (currentSrc.includes('/lovable-uploads/')) {
-        img.src = currentSrc.split('?')[0] + '?v=' + Date.now();
-      }
+      img.src = currentSrc.split('?')[0] + '?v=' + Date.now();
     });
     
     // Add scroll animations activation
