@@ -1,5 +1,6 @@
 
 import { Github, Linkedin, Facebook, Instagram } from "lucide-react";
+import { socialLinks } from "../pages/Index";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,7 +23,7 @@ const Footer = () => {
           
           <div className="flex gap-4">
             <a
-              href="https://www.linkedin.com/in/tarshiwilliams"
+              href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
@@ -31,7 +32,7 @@ const Footer = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://github.com/Wallis237"
+              href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
@@ -40,7 +41,7 @@ const Footer = () => {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://www.facebook.com/tarshi.william"
+              href={socialLinks.facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
@@ -49,7 +50,7 @@ const Footer = () => {
               <Facebook className="h-5 w-5" />
             </a>
             <a
-              href="https://www.instagram.com/tarshiwilliams?igsh=YzkxczVjY29pcm42"
+              href={socialLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"

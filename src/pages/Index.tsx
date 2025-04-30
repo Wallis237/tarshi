@@ -9,6 +9,14 @@ import GallerySection from '../components/GallerySection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
+// Define social links in a separate object that can be exported
+export const socialLinks = {
+  linkedin: "https://www.linkedin.com/in/tarshiwilliams",
+  github: "https://github.com/Wallis237",
+  facebook: "https://www.facebook.com/tarshi.william",
+  instagram: "https://www.instagram.com/tarshiwilliams?igsh=YzkxczVjY29pcm42"
+};
+
 const Index = () => {
   // Add scroll animations activation
   useEffect(() => {
@@ -30,14 +38,6 @@ const Index = () => {
     
     // Add scroll event listener
     window.addEventListener('scroll', handleAnimateOnScroll);
-    
-    // Define social media links for global use
-    window.socialLinks = {
-      linkedin: "https://www.linkedin.com/in/tarshiwilliams",
-      github: "https://github.com/Wallis237",
-      facebook: "https://www.facebook.com/tarshi.william",
-      instagram: "https://www.instagram.com/tarshiwilliams?igsh=YzkxczVjY29pcm42"
-    };
     
     // Clean up
     return () => {

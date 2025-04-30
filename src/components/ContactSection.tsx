@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Github, Linkedin, Facebook, Instagram, Mail, Phone } from "lucide-react";
 import AnimationWrapper from './AnimationWrapper';
+import { socialLinks } from "../pages/Index";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -44,11 +45,11 @@ const ContactSection = () => {
     // No need to reset form as the user might want to modify their message in their email client
   };
   
-  const socialLinks = [
-    { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, href: 'https://www.linkedin.com/in/tarshiwilliams' },
-    { name: 'GitHub', icon: <Github className="h-5 w-5" />, href: 'https://github.com/Wallis237' },
-    { name: 'Facebook', icon: <Facebook className="h-5 w-5" />, href: 'https://www.facebook.com/tarshi.william' },
-    { name: 'Instagram', icon: <Instagram className="h-5 w-5" />, href: 'https://www.instagram.com/tarshiwilliams?igsh=YzkxczVjY29pcm42' },
+  const socialLinksArray = [
+    { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, href: socialLinks.linkedin },
+    { name: 'GitHub', icon: <Github className="h-5 w-5" />, href: socialLinks.github },
+    { name: 'Facebook', icon: <Facebook className="h-5 w-5" />, href: socialLinks.facebook },
+    { name: 'Instagram', icon: <Instagram className="h-5 w-5" />, href: socialLinks.instagram },
   ];
   
   return (
@@ -97,7 +98,7 @@ const ContactSection = () => {
               <div className="pt-6">
                 <h4 className="text-lg font-medium mb-3">Follow Me</h4>
                 <div className="flex gap-4">
-                  {socialLinks.map((link) => (
+                  {socialLinksArray.map((link) => (
                     <a
                       key={link.name}
                       href={link.href}
