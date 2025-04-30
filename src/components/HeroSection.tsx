@@ -4,6 +4,9 @@ import { ArrowRight } from "lucide-react";
 import AnimationWrapper from "./AnimationWrapper";
 
 const HeroSection = () => {
+  // Add a timestamp to bust cache
+  const cacheBuster = `?v=${Date.now()}`;
+
   return (
     <section
       id="home"
@@ -52,7 +55,7 @@ const HeroSection = () => {
             <div className="relative w-full max-w-md aspect-square">
               <div className="absolute inset-0 bg-portfolio-primary/20 rounded-full -translate-x-4 -translate-y-4"></div>
               <img
-                src="/lovable-uploads/wallisphocap.jpg"
+                src={`/lovable-uploads/wallisphocap.jpg${cacheBuster}`}
                 alt="Tarshi Williams"
                 className="rounded-full w-full h-full object-cover relative z-10 border-4 border-white shadow-xl"
               />

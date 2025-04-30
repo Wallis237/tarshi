@@ -4,6 +4,9 @@ import { ExternalLink } from "lucide-react";
 import AnimationWrapper from "./AnimationWrapper";
 
 const AboutSection = () => {
+  // Add a timestamp to bust cache
+  const cacheBuster = `?v=${Date.now()}`;
+  
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container mx-auto px-4">
@@ -18,7 +21,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="w-full aspect-square relative z-10">
                 <img 
-                  src="/lovable-uploads/wallispc.jpg" 
+                  src={`/lovable-uploads/wallispc.jpg${cacheBuster}`}
                   alt="Tarshi Williams working"
                   className="w-full h-full object-cover rounded-lg shadow-lg"
                 />

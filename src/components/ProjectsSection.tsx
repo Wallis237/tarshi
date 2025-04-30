@@ -15,12 +15,15 @@ interface Project {
   githubLink: string;
 }
 
+// Add a timestamp to bust cache
+const cacheBuster = `?v=${Date.now()}`;
+
 const projects: Project[] = [
   {
     id: 1,
     title: "E-Commerce Platform",
     description: "A full-featured online store with payment processing and inventory management.",
-    image: "/lovable-uploads/ecom.jpg",
+    image: `/lovable-uploads/ecom.jpg${cacheBuster}`,
     category: ["software", "web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -29,7 +32,7 @@ const projects: Project[] = [
     id: 2,
     title: "Portfolio Website",
     description: "Responsive portfolio website with animated sections and filtering gallery.",
-    image: "/lovable-uploads/poortoo.jpg",
+    image: `/lovable-uploads/poortoo.jpg${cacheBuster}`,
     category: ["web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -38,7 +41,7 @@ const projects: Project[] = [
     id: 3,
     title: "Photography Portfolio",
     description: "Elegant photography showcase with lightbox gallery and smooth transitions.",
-    image: "/lovable-uploads/wallisban.jpg",
+    image: `/lovable-uploads/wallisban.jpg${cacheBuster}`,
     category: ["photography"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -47,7 +50,7 @@ const projects: Project[] = [
     id: 4,
     title: "Brand Identity Pack",
     description: "Complete brand identity including logo, color palette, and marketing materials.",
-    image: "/lovable-uploads/mekban.jpg",
+    image: `/lovable-uploads/mekban.jpg${cacheBuster}`,
     category: ["design"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -56,7 +59,7 @@ const projects: Project[] = [
     id: 5,
     title: "Mobile Application",
     description: "Cross-platform mobile app with user authentication and cloud synchronization.",
-    image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=800&q=80",
+    image: `https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=800&q=80${cacheBuster}`,
     category: ["software"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -65,7 +68,7 @@ const projects: Project[] = [
     id: 6,
     title: "UI/UX Design System",
     description: "Comprehensive design system with component library and usage guidelines.",
-    image: "/lovable-uploads/ui car.jpg",
+    image: `/lovable-uploads/ui car.jpg${cacheBuster}`,
     category: ["design", "web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",

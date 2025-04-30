@@ -18,8 +18,18 @@ export const socialLinks = {
 };
 
 const Index = () => {
-  // Add scroll animations activation
+  // Force a refresh to clear any cached assets
   useEffect(() => {
+    // This will force all images to reload
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      const currentSrc = img.src;
+      if (currentSrc.includes('/lovable-uploads/')) {
+        img.src = currentSrc.split('?')[0] + '?v=' + Date.now();
+      }
+    });
+    
+    // Add scroll animations activation
     const handleAnimateOnScroll = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
       
