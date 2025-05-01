@@ -21,7 +21,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="w-full aspect-square relative z-10">
                 <img 
-                  src={`public/lovable-uploads/856c7f5f-9e7f-41e1-b11b-f83934a4a06d.png${cacheBuster}`}
+                  src={`public/lovable-uploads/ca5a9825-0c31-454e-953e-a5497d0b78ac.png`}
                   alt="Tarshi Williams working"
                   className="w-full h-full object-cover rounded-lg shadow-lg"
                 />
