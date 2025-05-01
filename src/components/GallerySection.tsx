@@ -25,31 +25,31 @@ const galleryItems: GalleryItem[] = [
     id: 2,
     title: "Landscape Photography",
     category: "Photography",
-    image: `/lovable-uploads/355fa138-0d54-4077-ae28-5cca71cde6d5.png${cacheBuster}`,
+    image: `public/lovable-uploads/e85332d2-9f30-40f5-9d44-f9bf93ebb34e.png`,
   },
   {
     id: 3,
     title: "Brand Logo Design",
     category: "Graphic Design",
-    image: `/lovable-uploads/3028df71-0167-4088-a78f-40507a4ea535.png${cacheBuster}`,
+    image: `public/lovable-uploads/3028df71-0167-4088-a78f-40507a4ea535.png`,
   },
   {
     id: 4,
     title: "Website Mockup",
     category: "Web Design",
-    image: `/lovable-uploads/033930a6-c382-4cc3-ba0e-9f3e9c7bfd31.png${cacheBuster}`,
+    image: `public/lovable-uploads/355fa138-0d54-4077-ae28-5cca71cde6d5.png`,
   },
   {
     id: 5,
     title: "Portrait Photography",
     category: "Photography",
-    image: `/lovable-uploads/bfecc9f4-5d72-4357-8d01-57d515ca89b0.png${cacheBuster}`,
+    image: `public/lovable-uploads/66c21b98-7aa0-4de3-8254-61f261dc0c8d.png`,
   },
   {
     id: 6,
     title: "Portrait Photography",
     category: "Photography",
-    image: `https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&q=80${cacheBuster}`,
+    image: `https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80`,
   },
 ];
 
