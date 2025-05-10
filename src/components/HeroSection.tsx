@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import AnimationWrapper from "./AnimationWrapper";
@@ -22,12 +21,12 @@ const HeroSection = () => {
                   Creative Developer & Designer
                 </span>
               </h1>
-              
+
               <p className="text-lg text-gray-600 md:text-xl max-w-lg">
                 I blend software development, web design, photography, and graphic design
                 to create compelling digital experiences.
               </p>
-              
+
               <div className="flex flex-wrap gap-4">
                 <Button 
                   size="lg" 
@@ -38,7 +37,7 @@ const HeroSection = () => {
                     Get In Touch <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                
+
                 <Button 
                   size="lg" 
                   variant="outline" 
@@ -50,12 +49,12 @@ const HeroSection = () => {
               </div>
             </div>
           </AnimationWrapper>
-          
+
           <AnimationWrapper className="flex-1 flex justify-center" delay={400}>
             <div className="relative w-full max-w-md aspect-square">
               <div className="absolute inset-0 bg-portfolio-primary/20 rounded-full -translate-x-4 -translate-y-4"></div>
               <img
-                src={`public/lovable-uploads/856c7f5f-9e7f-41e1-b11b-f83934a4a06d.png`}
+                src={`/lovable-uploads/856c7f5f-9e7f-41e1-b11b-f83934a4a06d.png${cacheBuster}`}
                 alt="Tarshi Williams"
                 className="rounded-full w-full h-full object-cover relative z-10 border-4 border-white shadow-xl"
               />
