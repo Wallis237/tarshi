@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import AnimationWrapper from "./AnimationWrapper";
@@ -21,7 +20,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="w-full aspect-square relative z-10">
                 <img 
-                  src={`public/lovable-uploads/ca5a9825-0c31-454e-953e-a5497d0b78ac.png`}
+                  src={`/lovable-uploads/ca5a9825-0c31-454e-953e-a5497d0b78ac.png${cacheBuster}`}
                   alt="Tarshi Williams working"
                   className="w-full h-full object-cover rounded-lg shadow-lg"
                 />
