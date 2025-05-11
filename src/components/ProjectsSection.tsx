@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,15 +14,13 @@ interface Project {
   githubLink: string;
 }
 
-// Add a timestamp to bust cache
-const cacheBuster = `?v=${Date.now()}`;
-
+// Project data
 const projects: Project[] = [
   {
     id: 1,
     title: "E-Commerce Platform",
     description: "A full-featured online store with payment processing and inventory management.",
-    image: `public/lovable-uploads/bfecc9f4-5d72-4357-8d01-57d515ca89b0.png`,
+    image: "/lovable-uploads/bfecc9f4-5d72-4357-8d01-57d515ca89b0.png",
     category: ["software", "web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "https://github.com/Wallis237",
@@ -32,7 +29,7 @@ const projects: Project[] = [
     id: 2,
     title: "Portfolio Website",
     description: "Responsive portfolio website with animated sections and filtering gallery.",
-    image: `public/lovable-uploads/033930a6-c382-4cc3-ba0e-9f3e9c7bfd31.png`,
+    image: "/lovable-uploads/033930a6-c382-4cc3-ba0e-9f3e9c7bfd31.png",
     category: ["web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "https://github.com/Wallis237",
@@ -41,7 +38,7 @@ const projects: Project[] = [
     id: 3,
     title: "Photography Portfolio",
     description: "Elegant photography showcase with lightbox gallery and smooth transitions.",
-    image: `public/lovable-uploads/856c7f5f-9e7f-41e1-b11b-f83934a4a06d.png`,
+    image: "/lovable-uploads/856c7f5f-9e7f-41e1-b11b-f83934a4a06d.png",
     category: ["photography"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -50,7 +47,7 @@ const projects: Project[] = [
     id: 4,
     title: "Brand Identity Pack",
     description: "Complete brand identity including logo, color palette, and marketing materials.",
-    image: `public/lovable-uploads/31255d6e-a71d-48e8-a9f8-39d6eceff50c.png`,
+    image: "/lovable-uploads/31255d6e-a71d-48e8-a9f8-39d6eceff50c.png",
     category: ["design"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -59,7 +56,7 @@ const projects: Project[] = [
     id: 5,
     title: "Mobile Application",
     description: "Cross-platform mobile app with user authentication and cloud synchronization.",
-    image: `public/lovable-uploads/355fa138-0d54-4077-ae28-5cca71cde6d5.png`,
+    image: "/lovable-uploads/355fa138-0d54-4077-ae28-5cca71cde6d5.png",
     category: ["software"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -68,7 +65,7 @@ const projects: Project[] = [
     id: 6,
     title: "UI/UX Design System",
     description: "Comprehensive design system with component library and usage guidelines.",
-    image: `public/lovable-uploads/0d30ad6b-398e-41f3-81d9-091bcccc1dd0.png`,
+    image: "/lovable-uploads/0d30ad6b-398e-41f3-81d9-091bcccc1dd0.png",
     category: ["design", "web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
@@ -78,7 +75,7 @@ const projects: Project[] = [
 const ProjectsSection = () => {
   const [filter, setFilter] = useState<string>("all");
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
-  
+
   useEffect(() => {
     if (filter === "all") {
       setFilteredProjects(projects);
@@ -88,7 +85,7 @@ const ProjectsSection = () => {
       );
     }
   }, [filter]);
-  
+
   const categories = [
     { id: "all", name: "All" },
     { id: "software", name: "Software Dev" },
@@ -96,7 +93,7 @@ const ProjectsSection = () => {
     { id: "photography", name: "Photography" },
     { id: "design", name: "Design" },
   ];
-  
+
   return (
     <section id="projects" className="section-padding">
       <div className="container mx-auto px-4">
@@ -105,7 +102,7 @@ const ProjectsSection = () => {
             My <span className="gradient-text">Projects</span>
           </h2>
         </AnimationWrapper>
-        
+
         <AnimationWrapper delay={200} className="flex justify-center mb-10">
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
@@ -113,8 +110,8 @@ const ProjectsSection = () => {
                 key={category.id}
                 onClick={() => setFilter(category.id)}
                 className={`px-4 py-2 rounded-full transition-all ${
-                  filter === category.id 
-                    ? "bg-portfolio-primary text-white" 
+                  filter === category.id
+                    ? "bg-portfolio-primary text-white"
                     : "bg-gray-100 hover:bg-gray-200 text-gray-700"
                 }`}
               >
@@ -123,8 +120,8 @@ const ProjectsSection = () => {
             ))}
           </div>
         </AnimationWrapper>
-        
-        <div className="portfolio-grid">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
             <AnimationWrapper key={project.id} delay={300 + index * 100}>
               <ProjectCard project={project} />
