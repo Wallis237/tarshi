@@ -1,73 +1,163 @@
-# Welcome to your Lovable project
+Documentation for Tarshi App
 
-## Project info
+1. Introduction
 
-**URL**: https://lovable.dev/projects/fd6ff49d-4bce-4315-b602-3ab175c4e099
+Purpose of the App
 
-## How can I edit this code?
+The Tarshi App is a demo application built using Next.js and Tigris. It showcases the creation and management of tasks in a minimalistic todo list format. The app serves as a foundation for more complex project ideas and demonstrates essential web application functionalities.
 
-There are several ways of editing your application.
+Target Audience
 
-**Use Lovable**
+Developers exploring the Next.js and Tigris stack.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fd6ff49d-4bce-4315-b602-3ab175c4e099) and start prompting.
+Individuals looking for a simple task management tool.
 
-Changes made via Lovable will be committed automatically to this repo.
+Recruiters and collaborators reviewing Tarshi's web development skills.
 
-**Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Overview of Features
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Basic task creation, updating, and deletion.
 
-Follow these steps:
+Responsive design for desktop and mobile use.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Example of integration with the Tigris backend service.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+2. Features
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Task Management
 
-**Use GitHub Codespaces**
+Add tasks using a simple input field.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Edit existing tasks to update details.
 
-## What technologies are used for this project?
+Delete tasks to maintain a clean list.
 
-This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Responsive Design
 
-## How can I deploy this project?
+Optimized for seamless use across devices, including desktops, tablets, and mobile phones.
 
-Simply open [Lovable](https://lovable.dev/projects/fd6ff49d-4bce-4315-b602-3ab175c4e099) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+3. Technology Stack
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Frontend
+
+Framework: Next.js
+
+Styling: Default styles or CSS-in-JS (can be extended with libraries like Tailwind CSS).
+
+
+Backend
+
+Service: Tigris (cloud-based backend for data handling).
+
+Database: Integrated with Tigris for managing task data.
+
+
+Deployment
+
+Platform: Vercel
+
+
+
+---
+
+4. Architecture
+
+High-Level Overview
+
+Client-side rendering for a smooth user experience.
+
+Backend powered by Tigris to handle task-related data.
+
+Deployed on Vercel for scalability and ease of maintenance.
+
+
+API Endpoints
+
+1. Task Management
+
+POST /tasks: Add a new task.
+
+GET /tasks: Retrieve the list of tasks.
+
+PUT /tasks/:id: Update a specific task.
+
+DELETE /tasks/:id: Delete a specific task.
+
+
+
+
+Database Schema
+
+Tasks: Fields include task ID, title, description, and completion status.
+
+
+
+---
+
+5. Setup Guide
+
+Prerequisites
+
+Node.js (v16 or above)
+
+Tigris account for backend configuration
+
+Vercel account for deployment
+
+
+
+
+7. Usage Guide
+
+Managing Tasks
+
+1. Open the app in your browser.
+
+
+2. Use the input field to create a new task.
+
+
+3. Click on a task to edit or delete it.
+
+
+
+---
+
+8. Future Improvements
+
+Planned Features
+
+User authentication for personalized task lists.
+
+Advanced filtering and sorting of tasks.
+
+Integration with a notification system for task reminders.
+
+
+Known Issues
+
+Limited browser support for older versions.
+
+Current functionality is limited to basic task management.
+
+
+
+---
+
+9. Conclusion
+
+The Tarshi App demonstrates fundamental web development and backend integration skills. It serves as a great starting point for more advanced applications. For inquiries or collaboration, please contact Tarshi Williams at tarshiwilliams476@gmail.com.
+
+
+---
+
