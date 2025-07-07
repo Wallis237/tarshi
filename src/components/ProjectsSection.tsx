@@ -56,9 +56,9 @@ const projects: Project[] = [
     id: 5,
     title: "Mobile Application",
     description: "Cross-platform mobile app with user authentication and cloud synchronization.",
-    image: "/lovable-uploads/355fa138-0d54-4077-ae28-5cca71cde6d5.png",
+    image: "",
     category: ["software"],
-    demoLink: "https://demoforcel.netlify.app/",
+    demoLink: "https://casino-insight-guru.vercel.app/",
     githubLink: "#",
   },
   {
