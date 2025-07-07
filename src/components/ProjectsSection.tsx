@@ -56,7 +56,7 @@ const projects: Project[] = [
     id: 5,
     title: "Mobile Application",
     description: "Cross-platform mobile app with user authentication and cloud synchronization.",
-    image: "",
+    image: "public/lovable-uploads/Screenshot_20250707-133307.png",
     category: ["software"],
     demoLink: "https://casino-insight-guru.vercel.app/",
     githubLink: "#",
