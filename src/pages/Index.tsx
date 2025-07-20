@@ -18,17 +18,8 @@ export const socialLinks = {
 };
 
 const Index = () => {
-  // Force a refresh to clear any cached assets
   useEffect(() => {
-    // This will force all images to reload
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-      // Apply cache busting to all images
-      const currentSrc = img.src;
-      img.src = currentSrc.split('?')[0] + '?v=' + Date.now();
-    });
-    
-    // Add scroll animations activation
+    // Enhanced scroll animations activation
     const handleAnimateOnScroll = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
       
@@ -45,17 +36,39 @@ const Index = () => {
     // Run on initial load
     handleAnimateOnScroll();
     
-    // Add scroll event listener
-    window.addEventListener('scroll', handleAnimateOnScroll);
+    // Add scroll event listener with throttling for performance
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleAnimateOnScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Preload critical images
+    const criticalImages = [
+      '/lovable-uploads/856c7f5f-9e7f-41e1-b11b-f83934a4a06d.png',
+      '/lovable-uploads/ca5a9825-0c31-454e-953e-a5497d0b78ac.png'
+    ];
+    
+    criticalImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
     
     // Clean up
     return () => {
-      window.removeEventListener('scroll', handleAnimateOnScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full overflow-x-hidden">
       <Navbar />
       <HeroSection />
       <AboutSection />

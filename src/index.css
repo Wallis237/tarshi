@@ -106,19 +106,153 @@
 }
 
 @layer components {
-  .nav-link {
-    @apply relative px-3 py-2 text-foreground transition-colors hover:text-portfolio-primary;
+  /* Enhanced Navigation Links */
+  .nav-link-enhanced {
+    @apply relative px-4 py-2 text-foreground transition-all duration-300 hover:text-portfolio-primary rounded-lg hover:bg-portfolio-light/30;
   }
   
-  .nav-link::after {
+  .nav-link-enhanced::after {
     content: '';
-    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-portfolio-primary transition-all duration-300;
+    @apply absolute left-1/2 bottom-0 w-0 h-0.5 bg-portfolio-primary transition-all duration-300 -translate-x-1/2;
   }
   
-  .nav-link:hover::after {
-    @apply w-full;
+  .nav-link-enhanced:hover::after {
+    @apply w-3/4;
   }
 
+  /* Floating Animations */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+  
+  @keyframes float-medium {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(90deg); }
+  }
+  
+  @keyframes float-fast {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(270deg); }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+  
+  .animate-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+  }
+  
+  .animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+  }
+
+  /* Pulse Animations */
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+  
+  @keyframes pulse-medium {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+  
+  .animate-pulse-medium {
+    animation: pulse-medium 3s ease-in-out infinite;
+  }
+
+  /* Gradient Text Animation */
+  .gradient-text-animated {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-primary via-portfolio-secondary to-portfolio-primary bg-[length:200%_100%];
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Enhanced Card Animations */
+  .project-card-enhanced {
+    @apply transition-all duration-500 hover:shadow-2xl hover:shadow-portfolio-primary/20 hover:-translate-y-2 transform-gpu;
+  }
+
+  .gallery-card-enhanced {
+    @apply transition-all duration-500 hover:shadow-2xl hover:shadow-portfolio-secondary/20 hover:-translate-y-1 transform-gpu;
+  }
+
+  /* Animation Wrapper Classes */
+  .animate-fadeUp-initial {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-fadeUp-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-fadeIn-initial {
+    opacity: 0;
+  }
+
+  .animate-fadeIn-visible {
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+  }
+
+  .animate-slideLeft-initial {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  .animate-slideLeft-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-slideRight-initial {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  .animate-slideRight-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-scaleIn-initial {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .animate-scaleIn-visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-fadeUpScale-initial {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  .animate-fadeUpScale-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Legacy support */
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
@@ -144,6 +278,22 @@
   
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-primary to-portfolio-secondary;
+  }
+
+  /* Additional utility animations */
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out forwards;
   }
 }
 
@@ -172,4 +322,20 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #9b87f5;
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

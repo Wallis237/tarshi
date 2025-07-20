@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -95,25 +96,26 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="section-padding">
+    <section id="projects" className="section-padding bg-gradient-to-b from-white to-gray-50/50">
       <div className="container mx-auto px-4">
-        <AnimationWrapper>
+        <AnimationWrapper animation="fadeUp">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
             My <span className="gradient-text">Projects</span>
           </h2>
         </AnimationWrapper>
 
-        <AnimationWrapper delay={200} className="flex justify-center mb-10">
+        <AnimationWrapper animation="fadeUp" delay={200} className="flex justify-center mb-10">
           <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((category) => (
+            {categories.map((category, index) => (
               <button
                 key={category.id}
                 onClick={() => setFilter(category.id)}
-                className={`px-4 py-2 rounded-full transition-all ${
+                className={`px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-md ${
                   filter === category.id
-                    ? "bg-portfolio-primary text-white"
-                    : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+                    ? "bg-portfolio-primary text-white shadow-lg shadow-portfolio-primary/25 scale-105"
+                    : "bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 hover:border-portfolio-primary/30"
                 }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {category.name}
               </button>
@@ -121,9 +123,9 @@ const ProjectsSection = () => {
           </div>
         </AnimationWrapper>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <AnimationWrapper key={project.id} delay={300 + index * 100}>
+            <AnimationWrapper key={project.id} animation="fadeUpScale" delay={300 + index * 100}>
               <ProjectCard project={project} />
             </AnimationWrapper>
           ))}
@@ -135,34 +137,36 @@ const ProjectsSection = () => {
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Card className="overflow-hidden card-hover h-full flex flex-col">
+    <Card className="overflow-hidden project-card-enhanced h-full flex flex-col group">
       <div className="relative w-full pt-[60%] overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
-      <CardContent className="p-6 flex flex-col flex-grow">
-        <h3 className="font-semibold text-xl mb-2">{project.title}</h3>
-        <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
+      <CardContent className="p-6 flex flex-col flex-grow relative">
+        <h3 className="font-semibold text-xl mb-2 group-hover:text-portfolio-primary transition-colors duration-300">{project.title}</h3>
+        <p className="text-gray-600 mb-4 flex-grow leading-relaxed">{project.description}</p>
         <div className="flex flex-wrap gap-2 mt-2 mb-4">
-          {project.category.map((cat) => (
+          {project.category.map((cat, index) => (
             <span
               key={cat}
-              className="text-xs px-2 py-1 rounded-full bg-portfolio-light text-portfolio-primary"
+              className="text-xs px-3 py-1 rounded-full bg-portfolio-light text-portfolio-primary hover:bg-portfolio-primary hover:text-white transition-all duration-300 transform hover:scale-105"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {cat}
             </span>
           ))}
         </div>
         <div className="flex space-x-3 mt-auto">
-          <Button size="sm" variant="outline" asChild className="flex-1">
+          <Button size="sm" variant="outline" asChild className="flex-1 hover:scale-105 transition-transform duration-200">
             <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
               <Eye className="h-4 w-4 mr-1" /> Demo
             </a>
           </Button>
-          <Button size="sm" variant="outline" asChild className="flex-1">
+          <Button size="sm" variant="outline" asChild className="flex-1 hover:scale-105 transition-transform duration-200">
             <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
               <Github className="h-4 w-4 mr-1" /> Code
             </a>
