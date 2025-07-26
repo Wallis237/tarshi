@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,46 +74,54 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-1">
-            {navLinks.map((link, index) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="nav-link-enhanced"
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center space-x-1">
+            <nav className="flex space-x-1">
+              {navLinks.map((link, index) => (
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  className="nav-link-enhanced"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+            <div className="ml-4">
+              <ThemeToggle />
+            </div>
+          </div>
 
           {/* Mobile Navigation Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden hover:scale-110 transition-transform duration-200"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle mobile menu"
-          >
-            <div className="relative w-6 h-6">
-              <Menu 
-                size={24} 
-                className={`absolute inset-0 transition-all duration-300 ${
-                  isMobileMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
-                }`} 
-              />
-              <X 
-                size={24} 
-                className={`absolute inset-0 transition-all duration-300 ${
-                  isMobileMenuOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
-                }`} 
-              />
-            </div>
-          </Button>
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:scale-110 transition-transform duration-200"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              <div className="relative w-6 h-6">
+                <Menu 
+                  size={24} 
+                  className={`absolute inset-0 transition-all duration-300 ${
+                    isMobileMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
+                  }`} 
+                />
+                <X 
+                  size={24} 
+                  className={`absolute inset-0 transition-all duration-300 ${
+                    isMobileMenuOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
+                  }`} 
+                />
+              </div>
+            </Button>
+          </div>
         </div>
       </div>
 

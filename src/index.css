@@ -187,69 +187,75 @@
     @apply transition-all duration-500 hover:shadow-2xl hover:shadow-portfolio-secondary/20 hover:-translate-y-1 transform-gpu;
   }
 
-  /* Animation Wrapper Classes */
+  /* Enhanced Animation Wrapper Classes with Smooth Easing */
   .animate-fadeUp-initial {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
+    transition: none;
   }
 
   .animate-fadeUp-visible {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .animate-fadeIn-initial {
     opacity: 0;
+    transition: none;
   }
 
   .animate-fadeIn-visible {
     opacity: 1;
-    transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .animate-slideLeft-initial {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-60px);
+    transition: none;
   }
 
   .animate-slideLeft-visible {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .animate-slideRight-initial {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(60px);
+    transition: none;
   }
 
   .animate-slideRight-visible {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .animate-scaleIn-initial {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.9);
+    transition: none;
   }
 
   .animate-scaleIn-visible {
     opacity: 1;
     transform: scale(1);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .animate-fadeUpScale-initial {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(40px) scale(0.96);
+    transition: none;
   }
 
   .animate-fadeUpScale-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   /* Legacy support */

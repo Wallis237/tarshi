@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import AnimationWrapper from "./AnimationWrapper";
+import StaggeredAnimationGroup from "./StaggeredAnimationGroup";
 
 const AboutSection = () => {
   // Add a timestamp to bust cache
@@ -16,7 +17,7 @@ const AboutSection = () => {
         </AnimationWrapper>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <AnimationWrapper delay={200}>
+          <AnimationWrapper animation="slideLeft" delay={300}>
             <div className="relative">
               <div className="w-full aspect-square relative z-10">
                 <img 
@@ -29,26 +30,32 @@ const AboutSection = () => {
             </div>
           </AnimationWrapper>
           
-          <AnimationWrapper delay={400}>
-            <div className="space-y-6">
+          <div className="space-y-6">
+            <AnimationWrapper animation="fadeUp" delay={400}>
               <h3 className="text-2xl md:text-3xl font-semibold">
                 Creative Developer with a Passion for Design
               </h3>
+            </AnimationWrapper>
+            
+            <StaggeredAnimationGroup
+              animation="fadeUp"
+              staggerDelay={150}
+              baseDelay={500}
+            >
+              <p className="text-muted-foreground">
+                I'm Tarshi Williams, a multidisciplinary professional with expertise in software development, web development, photography, and graphic design. My approach combines technical precision with creative vision to deliver exceptional digital experiences.
+              </p>
               
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  I'm Tarshi Williams, a multidisciplinary professional with expertise in software development, web development, photography, and graphic design. My approach combines technical precision with creative vision to deliver exceptional digital experiences.
-                </p>
-                
-                <p>
-                  With a foundation in diverse creative fields, I bring a unique perspective to every project. I'm passionate about creating cohesive solutions that not only function flawlessly but also engage and inspire users.
-                </p>
-                
-                <p>
-                  My skill set spans across multiple domains, allowing me to handle projects from concept to completion with a holistic understanding of both technical requirements and design principles.
-                </p>
-              </div>
+              <p className="text-muted-foreground">
+                With a foundation in diverse creative fields, I bring a unique perspective to every project. I'm passionate about creating cohesive solutions that not only function flawlessly but also engage and inspire users.
+              </p>
               
+              <p className="text-muted-foreground">
+                My skill set spans across multiple domains, allowing me to handle projects from concept to completion with a holistic understanding of both technical requirements and design principles.
+              </p>
+            </StaggeredAnimationGroup>
+            
+            <AnimationWrapper animation="fadeUp" delay={900}>
               <div className="pt-4">
                 <Button 
                   className="bg-portfolio-primary hover:bg-portfolio-primary/90"
@@ -59,8 +66,8 @@ const AboutSection = () => {
                   </a>
                 </Button>
               </div>
-            </div>
-          </AnimationWrapper>
+            </AnimationWrapper>
+          </div>
         </div>
       </div>
     </section>
