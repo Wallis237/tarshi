@@ -64,18 +64,13 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16 md:h-20">
           <a 
             href="#home" 
-            className="flex items-center gap-2 hover:scale-105 transition-transform duration-300"
+            className="font-playfair text-2xl font-bold text-portfolio-primary hover:scale-105 transition-transform duration-300"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('#home');
             }}
           >
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 border-2 border-white rounded-sm"></div>
-            </div>
-            <div className="text-xl font-bold text-foreground">
-              Abubakar
-            </div>
+            Tarshi<span className="text-portfolio-secondary">Williams</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -85,7 +80,7 @@ const Navbar = () => {
                 <a 
                   key={link.name} 
                   href={link.href} 
-                  className="text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-muted/50"
+                  className="nav-link-enhanced"
                   style={{ animationDelay: `${index * 0.1}s` }}
                   onClick={(e) => {
                     e.preventDefault();
@@ -96,16 +91,6 @@ const Navbar = () => {
                 </a>
               ))}
             </nav>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#contact');
-              }}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-xl font-medium transition-all duration-300 ml-6 transform hover:scale-105"
-            >
-              Get In Touch
-            </a>
             <div className="ml-4">
               <ThemeToggle />
             </div>
