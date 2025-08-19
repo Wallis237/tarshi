@@ -26,6 +26,7 @@ const projects: Project[] = [
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "https://github.com/Wallis237",
   },
+
   {
     id: 2,
     title: "Portfolio Website",
@@ -70,6 +71,24 @@ const projects: Project[] = [
     category: ["design", "web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
+  },
+      {
+    id: 7,
+    title: "Chatapp",
+    description: "A full chat app where users create account and chat with other users. users have able to upload and update profile",
+    image: "",
+    category: ["software", "web"],
+    demoLink: "https://demoforcel.netlify.app/",
+    githubLink: "https://github.com/Wallis237",
+  },
+    {
+    id: 8,
+    title: "Client-intake",
+    description: "A full-featured online Questionaire which help me understand Client demandes",
+    image: "",
+    category: ["software", "web"],
+    demoLink: "https://client-intake-silk.vercel.app/",
+    githubLink: "https://github.com/Wallis237",
   },
 ];
 
