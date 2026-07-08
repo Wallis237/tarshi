@@ -1,40 +1,32 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { Button } from '@/components/ui/button';
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+  useEffect(() => {
+    const saved = (localStorage.getItem('theme') as 'dark' | 'light' | null) || 'dark';
+    applyTheme(saved);
+  }, []);
+
+  const applyTheme = (next: 'dark' | 'light') => {
+    setTheme(next);
+    localStorage.setItem('theme', next);
+    const root = document.documentElement;
+    root.classList.remove('light', 'dark');
+    root.classList.add(next);
   };
 
+  const toggle = () => applyTheme(theme === 'dark' ? 'light' : 'dark');
+
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={toggleTheme}
-      className="relative overflow-hidden transition-all duration-300 hover:scale-110"
+    <button
+      onClick={toggle}
+      className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
       aria-label="Toggle theme"
     >
-      <div className="relative w-5 h-5">
-        <Sun
-          className={`absolute inset-0 transition-all duration-500 ${
-            theme === 'dark' 
-              ? 'rotate-90 scale-0 opacity-0' 
-              : 'rotate-0 scale-100 opacity-100'
-          }`}
-        />
-        <Moon
-          className={`absolute inset-0 transition-all duration-500 ${
-            theme === 'dark' 
-              ? 'rotate-0 scale-100 opacity-100' 
-              : '-rotate-90 scale-0 opacity-0'
-          }`}
-        />
-      </div>
-    </Button>
+      {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+    </button>
   );
 };
 

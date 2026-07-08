@@ -1,8 +1,5 @@
-
 import { useEffect, useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Eye } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import AnimationWrapper from './AnimationWrapper';
 
 interface Project {
@@ -13,9 +10,10 @@ interface Project {
   category: string[];
   demoLink: string;
   githubLink: string;
+  tags?: string[];
+  featured?: boolean;
 }
 
-// Project data
 const projects: Project[] = [
   {
     id: 1,
@@ -25,8 +23,9 @@ const projects: Project[] = [
     category: ["software", "web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "https://github.com/Wallis237",
+    tags: ["React", "Tailwind", "Framer Motion"],
+    featured: true,
   },
-
   {
     id: 2,
     title: "Portfolio Website",
@@ -35,6 +34,7 @@ const projects: Project[] = [
     category: ["web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "https://github.com/Wallis237",
+    tags: ["TypeScript"],
   },
   {
     id: 3,
@@ -44,6 +44,7 @@ const projects: Project[] = [
     category: ["photography"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
+    tags: ["React", "GSAP"],
   },
   {
     id: 4,
@@ -53,6 +54,7 @@ const projects: Project[] = [
     category: ["design"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
+    tags: ["Branding", "Design"],
   },
   {
     id: 5,
@@ -62,6 +64,7 @@ const projects: Project[] = [
     category: ["software"],
     demoLink: "https://casino-insight-guru.vercel.app/",
     githubLink: "#",
+    tags: ["React Native"],
   },
   {
     id: 6,
@@ -71,25 +74,36 @@ const projects: Project[] = [
     category: ["design", "web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "#",
+    tags: ["Figma", "System"],
   },
-      {
+  {
     id: 7,
-    title: "Chatapp",
-    description: "A full chat app where users create account and chat with other users. users have able to upload and update profile",
-    image: "",
+    title: "Chat App",
+    description: "A full chat app where users create accounts and message each other with profile uploads.",
+    image: "/lovable-uploads/e85332d2-9f30-40f5-9d44-f9bf93ebb34e.png",
     category: ["software", "web"],
     demoLink: "https://demoforcel.netlify.app/",
     githubLink: "https://github.com/Wallis237",
+    tags: ["Realtime", "React"],
   },
-    {
+  {
     id: 8,
-    title: "Client-intake",
-    description: "A full-featured online Questionaire which help me understand Client demandes",
-    image: "",
+    title: "Client Intake",
+    description: "A full-featured online questionnaire to help me understand client demands.",
+    image: "/lovable-uploads/3028df71-0167-4088-a78f-40507a4ea535.png",
     category: ["software", "web"],
     demoLink: "https://client-intake-silk.vercel.app/",
     githubLink: "https://github.com/Wallis237",
+    tags: ["Forms", "TypeScript"],
   },
+];
+
+const categories = [
+  { id: "all", name: "All" },
+  { id: "software", name: "Software" },
+  { id: "web", name: "Web Dev" },
+  { id: "photography", name: "Photography" },
+  { id: "design", name: "Design" },
 ];
 
 const ProjectsSection = () => {
@@ -97,54 +111,71 @@ const ProjectsSection = () => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
 
   useEffect(() => {
-    if (filter === "all") {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(
-        projects.filter((project) => project.category.includes(filter))
-      );
-    }
+    setFilteredProjects(
+      filter === "all" ? projects : projects.filter((p) => p.category.includes(filter))
+    );
   }, [filter]);
 
-  const categories = [
-    { id: "all", name: "All" },
-    { id: "software", name: "Software Dev" },
-    { id: "web", name: "Web Dev" },
-    { id: "photography", name: "Photography" },
-    { id: "design", name: "Design" },
-  ];
-
   return (
-    <section id="projects" className="section-padding bg-gradient-to-b from-white to-gray-50/50">
-      <div className="container mx-auto px-4">
-        <AnimationWrapper animation="fadeUp">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            My <span className="gradient-text">Projects</span>
-          </h2>
-        </AnimationWrapper>
+    <section id="projects" className="section-padding relative">
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="grid lg:grid-cols-2 gap-8 items-end mb-12">
+          <AnimationWrapper animation="fadeUp">
+            <div>
+              <div className="eyebrow">// Selected Work</div>
+              <h2 className="mt-3 font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight">
+                Turning Ideas Into<br />
+                <span className="accent-italic">Masterpieces</span>
+              </h2>
+            </div>
+          </AnimationWrapper>
+          <AnimationWrapper animation="fadeUp" delay={150}>
+            <div className="flex gap-8 lg:justify-end">
+              <div>
+                <div className="font-display font-bold text-4xl text-primary">19</div>
+                <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground mt-1">
+                  Repositories
+                </div>
+              </div>
+              <div>
+                <div className="font-display font-bold text-4xl text-primary">15</div>
+                <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground mt-1">
+                  Followers
+                </div>
+              </div>
+            </div>
+          </AnimationWrapper>
+        </div>
 
-        <AnimationWrapper animation="fadeUp" delay={200} className="flex justify-center mb-10">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((category, index) => (
+        {/* Filters */}
+        <AnimationWrapper animation="fadeUp" delay={200}>
+          <div className="flex flex-wrap gap-2 mb-10">
+            {categories.map((c) => (
               <button
-                key={category.id}
-                onClick={() => setFilter(category.id)}
-                className={`px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-md ${
-                  filter === category.id
-                    ? "bg-portfolio-primary text-white shadow-lg shadow-portfolio-primary/25 scale-105"
-                    : "bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 hover:border-portfolio-primary/30"
+                key={c.id}
+                onClick={() => setFilter(c.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  filter === c.id
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-card border border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
                 }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {category.name}
+                {c.name}
               </button>
             ))}
           </div>
         </AnimationWrapper>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
-            <AnimationWrapper key={project.id} animation="fadeUpScale" delay={300 + index * 100}>
+            <AnimationWrapper
+              key={project.id}
+              animation="fadeUpScale"
+              delay={100 + index * 80}
+              className={project.featured ? "lg:col-span-2 lg:row-span-1" : ""}
+            >
               <ProjectCard project={project} />
             </AnimationWrapper>
           ))}
@@ -156,43 +187,64 @@ const ProjectsSection = () => {
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Card className="overflow-hidden project-card-enhanced h-full flex flex-col group">
-      <div className="relative w-full pt-[60%] overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <a
+      href={project.demoLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="surface-card-hover overflow-hidden group flex flex-col h-full"
+    >
+      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-6xl font-display font-bold text-muted-foreground/20">
+            {project.title.charAt(0)}
+          </div>
+        )}
+        <div className="absolute top-4 left-4 flex gap-2">
+          <span className="px-2.5 py-1 rounded-full bg-background/80 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest text-primary border border-primary/20">
+            {project.category[0]}
+          </span>
+        </div>
+        <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+          <ArrowUpRight className="w-4 h-4 text-primary" />
+        </div>
       </div>
-      <CardContent className="p-6 flex flex-col flex-grow relative">
-        <h3 className="font-semibold text-xl mb-2 group-hover:text-portfolio-primary transition-colors duration-300">{project.title}</h3>
-        <p className="text-gray-600 mb-4 flex-grow leading-relaxed">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mt-2 mb-4">
-          {project.category.map((cat, index) => (
-            <span
-              key={cat}
-              className="text-xs px-3 py-1 rounded-full bg-portfolio-light text-portfolio-primary hover:bg-portfolio-primary hover:text-white transition-all duration-300 transform hover:scale-105"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {cat}
+
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="font-display font-bold text-xl md:text-2xl group-hover:text-primary transition-colors">
+          {project.title}
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-grow">
+          {project.description}
+        </p>
+        {project.tags && (
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-[10px] font-mono px-2 py-1 rounded-md bg-muted text-muted-foreground uppercase tracking-widest"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+        <div className="mt-5 pt-5 border-t border-border flex items-center justify-between text-xs font-mono">
+          <span className="text-muted-foreground uppercase tracking-widest">View Project</span>
+          {project.githubLink && project.githubLink !== "#" && (
+            <span className="flex items-center gap-1 text-primary">
+              <Github className="w-3.5 h-3.5" />
+              Code
             </span>
-          ))}
+          )}
         </div>
-        <div className="flex space-x-3 mt-auto">
-          <Button size="sm" variant="outline" asChild className="flex-1 hover:scale-105 transition-transform duration-200">
-            <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-              <Eye className="h-4 w-4 mr-1" /> Demo
-            </a>
-          </Button>
-          <Button size="sm" variant="outline" asChild className="flex-1 hover:scale-105 transition-transform duration-200">
-            <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-              <Github className="h-4 w-4 mr-1" /> Code
-            </a>
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
+      </div>
+    </a>
   );
 };
 

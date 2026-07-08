@@ -1,157 +1,132 @@
-
-import React, { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from 'react';
 import { Menu, X } from "lucide-react";
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Update scrolled state for background blur
-      setIsScrolled(currentScrollY > 50);
-      
-      // Hide/show navbar based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
+      setIsScrolled(window.scrollY > 40);
+
+      // Determine active section
+      const sections = ['home', 'about', 'skills', 'projects', 'gallery', 'contact'];
+      const pos = window.scrollY + window.innerHeight / 3;
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
+          setActiveSection(id);
+          break;
+        }
       }
-      
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY]);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
+    { name: 'Work', href: '#projects' },
+    { name: 'Services', href: '#skills' },
     { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Gallery', href: '#gallery' },
     { name: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const isActive = (href: string) => `#${activeSection}` === href;
+
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${
-        isScrolled 
-          ? 'bg-white/90 shadow-lg backdrop-blur-md border-b border-white/20' 
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-background/85 backdrop-blur-xl border-b border-border/60'
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          <a 
-            href="#home" 
-            className="font-playfair text-2xl font-bold text-portfolio-primary hover:scale-105 transition-transform duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('#home');
-            }}
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <a
+            href="#home"
+            onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
+            className="flex items-center gap-2 group"
           >
-            Tarshi<span className="text-portfolio-secondary">Williams</span>
+            <span className="font-display font-bold text-primary text-xl tracking-tight">
+              SIR WALLIS
+            </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            <nav className="flex space-x-1">
-              {navLinks.map((link, index) => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
-                  className="nav-link-enhanced"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
-            <div className="ml-4">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right controls */}
+          <div className="flex items-center gap-2">
+            <div className="hidden sm:block">
               <ThemeToggle />
             </div>
-          </div>
-
-          {/* Mobile Navigation Toggle */}
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hover:scale-110 transition-transform duration-200"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle mobile menu"
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
+              className="hidden md:inline-flex btn-lime !py-2 !px-5 text-sm"
             >
-              <div className="relative w-6 h-6">
-                <Menu 
-                  size={24} 
-                  className={`absolute inset-0 transition-all duration-300 ${
-                    isMobileMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
-                  }`} 
-                />
-                <X 
-                  size={24} 
-                  className={`absolute inset-0 transition-all duration-300 ${
-                    isMobileMenuOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
-                  }`} 
-                />
-              </div>
-            </Button>
+              Hire Me
+            </a>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-border text-foreground"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${
-        isMobileMenuOpen 
-          ? 'max-h-96 opacity-100' 
-          : 'max-h-0 opacity-0'
-      } bg-white/95 backdrop-blur-md border-b border-white/20`}>
-        <nav className="flex flex-col py-4">
-          {navLinks.map((link, index) => (
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-500 ${
+          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        } bg-background/95 backdrop-blur-xl border-b border-border`}
+      >
+        <nav className="flex flex-col py-4 px-6 gap-1">
+          {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className={`px-6 py-3 hover:bg-gray-100/50 transition-all duration-300 transform ${
-                isMobileMenuOpen 
-                  ? 'translate-x-0 opacity-100' 
-                  : 'translate-x-4 opacity-0'
+              onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+              className={`py-3 text-base font-medium transition-colors ${
+                isActive(link.href) ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
               }`}
-              style={{ 
-                transitionDelay: isMobileMenuOpen ? `${index * 0.1}s` : '0s' 
-              }}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
-              }}
             >
               {link.name}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
+            className="btn-lime mt-3 self-start"
+          >
+            Hire Me
+          </a>
         </nav>
       </div>
     </header>

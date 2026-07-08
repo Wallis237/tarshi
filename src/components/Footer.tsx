@@ -1,78 +1,67 @@
-
 import { Github, Linkedin, Facebook, Instagram } from "lucide-react";
 import { socialLinks } from "../pages/Index";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
+  const socials = [
+    { name: 'GitHub', icon: Github, href: socialLinks.github },
+    { name: 'LinkedIn', icon: Linkedin, href: socialLinks.linkedin },
+    { name: 'Facebook', icon: Facebook, href: socialLinks.facebook },
+    { name: 'Instagram', icon: Instagram, href: socialLinks.instagram },
+  ];
+
   return (
-    <footer className="bg-gray-50 py-12">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <a 
-              href="#home" 
-              className="font-playfair text-2xl font-bold text-portfolio-primary"
-            >
-              Tarshi<span className="text-portfolio-secondary">Williams</span>
+    <footer className="border-t border-border py-12 mt-10">
+      <div className="container mx-auto px-6">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div>
+            <a href="#home" className="font-display font-bold text-primary text-2xl tracking-tight">
+              SIR WALLIS
             </a>
-            <p className="mt-2 text-gray-600 max-w-md">
-              Creative developer and designer crafting exceptional digital experiences
+            <p className="mt-3 text-sm text-muted-foreground max-w-xs">
+              Building the future with precision, passion, and purpose from Douala, Cameroon.
             </p>
           </div>
-          
-          <div className="flex gap-4">
-            <a
-              href="http://www.linkedin.com/in/tarshiwilliams"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="https://github.com/Wallis237"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href= "https://www.facebook.com/tarshi.william"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
-              aria-label="Facebook"
-            >
-              <Facebook className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.instagram.com/tarshiwilliams?igsh=YzkxczVjY29pcm42"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-colors hover:bg-portfolio-light hover:text-portfolio-primary"
-              aria-label="Instagram"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
+
+          <div>
+            <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground mb-4">Socials</div>
+            <div className="flex flex-col gap-2">
+              {socials.map(({ name, icon: Icon, href }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors w-fit"
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                  {name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground mb-4">Navigate</div>
+            <div className="flex flex-col gap-2">
+              {[
+                { name: 'Work', href: '#projects' },
+                { name: 'About', href: '#about' },
+                { name: 'Services', href: '#skills' },
+                { name: 'Contact', href: '#contact' },
+              ].map((l) => (
+                <a key={l.name} href={l.href} className="text-sm text-foreground hover:text-primary transition-colors w-fit">
+                  {l.name}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-        
-        <div className="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
-            &copy; {currentYear} Tarshi Williams. All rights reserved.
-          </p>
-          
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#home" className="text-sm text-gray-500 hover:text-portfolio-primary">Home</a>
-            <a href="#about" className="text-sm text-gray-500 hover:text-portfolio-primary">About</a>
-            <a href="#skills" className="text-sm text-gray-500 hover:text-portfolio-primary">Skills</a>
-            <a href="#projects" className="text-sm text-gray-500 hover:text-portfolio-primary">Projects</a>
-            <a href="#contact" className="text-sm text-gray-500 hover:text-portfolio-primary">Contact</a>
-          </div>
+
+        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground font-mono">
+          <span>© {currentYear} Tarshi Williams. Built with Precision.</span>
+          <span>Douala, Cameroon</span>
         </div>
       </div>
     </footer>
