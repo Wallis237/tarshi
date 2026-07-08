@@ -1,82 +1,89 @@
-
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import AnimationWrapper from "./AnimationWrapper";
 
 const HeroSection = () => {
-  // Add a timestamp to bust cache
-  const cacheBuster = `?v=${Date.now()}`;
+  const stats = [
+    { value: "2000+", label: "Global Reach" },
+    { value: "3+", label: "Years Exp." },
+    { value: "50+", label: "Projects" },
+    { value: "100%", label: "Passion" },
+  ];
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center pt-16 pb-8 px-4 bg-gradient-to-br from-white via-portfolio-light/10 to-portfolio-light/30 relative overflow-hidden"
-    >
-      {/* Floating background elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-portfolio-primary/5 rounded-full animate-float-slow"></div>
-      <div className="absolute bottom-20 right-10 w-24 h-24 bg-portfolio-secondary/10 rounded-full animate-float-medium"></div>
-      <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-portfolio-primary/8 rounded-full animate-float-fast"></div>
+    <section id="home" className="relative pt-28 md:pt-32 pb-16 overflow-hidden">
+      {/* Radial background glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-primary/[0.04] blur-3xl" />
+      </div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-          <AnimationWrapper animation="slideLeft" trigger="load" delay={300}>
-            <div className="flex-1 space-y-6 max-w-2xl">
-              <AnimationWrapper animation="fadeUp" trigger="load" delay={500}>
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  Hi, I'm Tarshi Williams
-                  <span className="block mt-2 gradient-text-animated">
-                    Creative Developer & Designer
-                  </span>
-                </h1>
-              </AnimationWrapper>
+      <div className="container mx-auto px-6 relative">
+        {/* Availability chip */}
+        <AnimationWrapper animation="fadeUp" trigger="load" delay={100}>
+          <div className="flex justify-center mb-8">
+            <span className="availability-chip">
+              Available for new projects
+            </span>
+          </div>
+        </AnimationWrapper>
 
-              <AnimationWrapper animation="fadeUp" trigger="load" delay={700}>
-                <p className="text-lg text-gray-600 md:text-xl max-w-lg leading-relaxed">
-                  I blend software development, web design, photography, and graphic design
-                  to create compelling digital experiences.
-                </p>
-              </AnimationWrapper>
+        {/* Headline */}
+        <AnimationWrapper animation="fadeUp" trigger="load" delay={200}>
+          <h1 className="font-display font-bold text-center text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight max-w-5xl mx-auto">
+            Empowering Brands<br />
+            Through <span className="accent-italic">Creative Solutions</span>
+          </h1>
+        </AnimationWrapper>
 
-              <AnimationWrapper animation="fadeUp" trigger="load" delay={900}>
-                <div className="flex flex-wrap gap-4">
-                  <Button 
-                    size="lg" 
-                    className="bg-portfolio-primary hover:bg-portfolio-primary/90 text-white transform hover:scale-105 hover:shadow-lg hover:shadow-portfolio-primary/25 transition-all duration-300"
-                    asChild
-                  >
-                    <a href="#contact">
-                      Get In Touch <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </a>
-                  </Button>
+        <AnimationWrapper animation="fadeUp" trigger="load" delay={350}>
+          <p className="mt-8 text-center text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            From Cameroon to the world. I'm Tarshi Williams — a full-stack developer
+            crafting high-performance digital experiences with a fusion of precision
+            engineering and artistic mastery.
+          </p>
+        </AnimationWrapper>
 
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-portfolio-primary text-portfolio-primary hover:bg-portfolio-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
-                    asChild
-                  >
-                    <a href="#projects">View Projects</a>
-                  </Button>
+        <AnimationWrapper animation="fadeUp" trigger="load" delay={500}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a href="#contact" className="btn-lime">
+              Start Your Project <ArrowRight className="h-4 w-4" />
+            </a>
+            <a href="#projects" className="btn-ghost">
+              View Portfolio
+            </a>
+          </div>
+        </AnimationWrapper>
+
+        {/* Stats strip */}
+        <AnimationWrapper animation="fadeUp" delay={700}>
+          <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-border">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="bg-card px-6 py-8 flex flex-col items-center text-center"
+              >
+                <div className="font-display font-bold text-3xl md:text-4xl text-primary">
+                  {s.value}
                 </div>
-              </AnimationWrapper>
-            </div>
-          </AnimationWrapper>
-
-          <AnimationWrapper animation="scaleIn" trigger="load" delay={400}>
-            <div className="flex-1 flex justify-center">
-              <div className="relative w-full max-w-md aspect-square group">
-                <div className="absolute inset-0 bg-portfolio-primary/20 rounded-full -translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform duration-500 ease-out"></div>
-                <img
-                  src={`/lovable-uploads/856c7f5f-9e7f-41e1-b11b-f83934a4a06d.png${cacheBuster}`}
-                  alt="Tarshi Williams"
-                  className="rounded-full w-full h-full object-cover relative z-10 border-4 border-white shadow-xl hover:shadow-2xl transition-shadow duration-500 group-hover:scale-105"
-                />
-                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-portfolio-secondary/30 rounded-full animate-pulse-slow"></div>
-                <div className="absolute -top-2 -right-8 w-16 h-16 bg-portfolio-primary/30 rounded-full animate-pulse-medium"></div>
+                <div className="mt-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground font-mono">
+                  {s.label}
+                </div>
               </div>
-            </div>
-          </AnimationWrapper>
-        </div>
+            ))}
+          </div>
+        </AnimationWrapper>
+
+        {/* Download CV pill */}
+        <AnimationWrapper animation="fadeUp" delay={800}>
+          <div className="mt-10 flex justify-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors font-mono"
+            >
+              <Download className="h-3.5 w-3.5" />
+              Download CV
+            </a>
+          </div>
+        </AnimationWrapper>
       </div>
     </section>
   );

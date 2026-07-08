@@ -1,156 +1,111 @@
-
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState, useEffect } from 'react';
 import AnimationWrapper from './AnimationWrapper';
 import StaggeredAnimationGroup from './StaggeredAnimationGroup';
 
+const skills = [
+  { name: "Python", level: 90, icon: "🐍" },
+  { name: "JavaScript", level: 85, icon: "JS" },
+  { name: "HTML / CSS", level: 95, icon: "◇" },
+  { name: "Logic & Systems", level: 88, icon: "◆" },
+];
+
+const services = [
+  { num: "01", title: "UI/UX Strategy" },
+  { num: "02", title: "Web Systems" },
+  { num: "03", title: "Game Architecture" },
+  { num: "04", title: "Cloud Solutions" },
+];
+
 const SkillsSection = () => {
-  const developmentSkills = [
-    { name: "Software Development", level: 90 },
-    { name: "Web Development", level: 85 },
-    { name: "Version Control (Git, GitHub)", level: 80 },
-    { name: "IDEs (Visual Studio)", level: 85 },
-    { name: "Deployment", level: 75 },
-  ];
-  
-  const designSkills = [
-    { name: "Photography", level: 85 },
-    { name: "Graphic Design", level: 80 },
-    { name: "Branding", level: 75 },
-    { name: "UI/UX Design", level: 70 },
-    { name: "Photo Editing", level: 85 },
-  ];
-  
   return (
-    <section id="skills" className="section-padding bg-gray-50">
-      <div className="container mx-auto px-4">
-        <AnimationWrapper>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            My <span className="gradient-text">Skills</span>
-          </h2>
-        </AnimationWrapper>
-        
-        <Tabs defaultValue="development" className="w-full max-w-4xl mx-auto">
-          <AnimationWrapper delay={200} className="flex justify-center mb-8">
-            <TabsList className="grid grid-cols-2">
-              <TabsTrigger value="development">Development</TabsTrigger>
-              <TabsTrigger value="design">Design</TabsTrigger>
-            </TabsList>
+    <section id="skills" className="section-padding relative">
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="grid lg:grid-cols-2 gap-8 items-end mb-14">
+          <AnimationWrapper animation="fadeUp">
+            <div>
+              <div className="eyebrow">// What We Do</div>
+              <h2 className="mt-3 font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight">
+                Comprehensive<br />
+                Digital <span className="accent-italic">Excellence</span>
+              </h2>
+            </div>
           </AnimationWrapper>
-          
-          <TabsContent value="development">
-            <StaggeredAnimationGroup
-              animation="fadeUp"
-              staggerDelay={120}
-              baseDelay={400}
-              className="space-y-8"
-            >
-              {developmentSkills.map((skill, index) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-medium">{skill.name}</h3>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                  </div>
-                  <div className="skill-bar">
-                    <SkillBarInner level={skill.level} delay={(index + 1) * 200} />
-                  </div>
+          <AnimationWrapper animation="fadeUp" delay={150}>
+            <p className="text-muted-foreground max-w-md lg:ml-auto">
+              A range of creative and digital services designed to help your brand stand
+              out in an increasingly competitive digital landscape.
+            </p>
+          </AnimationWrapper>
+        </div>
+
+        {/* Services list */}
+        <div className="surface-card divide-y divide-border overflow-hidden">
+          <StaggeredAnimationGroup animation="fadeUp" staggerDelay={80}>
+            {services.map((s) => (
+              <a
+                key={s.num}
+                href="#projects"
+                className="group flex items-center justify-between px-6 md:px-10 py-6 md:py-8 hover:bg-muted transition-colors"
+              >
+                <div className="flex items-center gap-6 md:gap-10">
+                  <span className="font-mono text-sm text-muted-foreground">{s.num}</span>
+                  <span className="font-display font-bold text-2xl md:text-3xl">
+                    {s.title}
+                  </span>
                 </div>
-              ))}
-            </StaggeredAnimationGroup>
-          </TabsContent>
-          
-          <TabsContent value="design">
-            <StaggeredAnimationGroup
-              animation="fadeUp"
-              staggerDelay={120}
-              baseDelay={400}
-              className="space-y-8"
-            >
-              {designSkills.map((skill, index) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-medium">{skill.name}</h3>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                  </div>
-                  <div className="skill-bar">
-                    <SkillBarInner level={skill.level} delay={(index + 1) * 200} />
-                  </div>
-                </div>
-              ))}
-            </StaggeredAnimationGroup>
-          </TabsContent>
-        </Tabs>
-        
-        <div className="mt-16">
-          <StaggeredAnimationGroup
-            animation="scaleIn"
-            staggerDelay={150}
-            baseDelay={700}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            <Card className="card-hover">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-portfolio-light mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-portfolio-primary"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 17 6-10"/></svg>
-                </div>
-                <h3 className="font-semibold">Clean Code</h3>
-                <p className="text-sm text-muted-foreground mt-2">Efficient, maintainable, and well-structured code</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="card-hover">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-portfolio-light mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-portfolio-primary"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><rect width="3" height="9" x="7" y="8"></rect><rect width="3" height="5" x="14" y="12"></rect></svg>
-                </div>
-                <h3 className="font-semibold">Responsive Design</h3>
-                <p className="text-sm text-muted-foreground mt-2">Websites that work on all devices and screen sizes</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="card-hover">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-portfolio-light mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-portfolio-primary"><path d="M11 12a1 1 0 1 0 2 0 1 1 0 0 0-2 0Z"/><path d="M3 12c0-1.1 1.343-2 3-2s3 .9 3 2-1.343 2-3 2-3-.9-3-2Z"/><path d="M15 12c0-1.1 1.343-2 3-2s3 .9 3 2-1.343 2-3 2-3-.9-3-2Z"/><path d="M6 10v4"/><path d="M18 10v4"/><path d="M15 9c0-1.1 1.343-2 3-2s3 .9 3 2"/><path d="M3 9c0-1.1 1.343-2 3-2s3 .9 3 2"/><path d="M12 6c0-1.1.9-2 2-2s2 .9 2 2"/><path d="M8 6c0-1.1.9-2 2-2s2 .9 2 2"/><path d="M15 15c0 1.1 1.343 2 3 2s3-.9 3-2"/><path d="M3 15c0 1.1 1.343 2 3 2s3-.9 3-2"/><path d="M12 18c0 1.1.9 2 2 2s2-.9 2-2"/><path d="M8 18c0 1.1.9 2 2 2s2-.9 2-2"/></svg>
-                </div>
-                <h3 className="font-semibold">Technical Problem Solving</h3>
-                <p className="text-sm text-muted-foreground mt-2">Finding elegant solutions to complex challenges</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="card-hover">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-portfolio-light mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-portfolio-primary"><path d="m10 7 5 3-5 3z"/><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M22 7h-5"/><path d="M22 11h-5"/><path d="M22 15h-5"/><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 17v4"/></svg>
-                </div>
-                <h3 className="font-semibold">Creative Design</h3>
-                <p className="text-sm text-muted-foreground mt-2">Visually appealing and user-friendly interfaces</p>
-              </CardContent>
-            </Card>
+                <span className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
+                  →
+                </span>
+              </a>
+            ))}
           </StaggeredAnimationGroup>
+        </div>
+
+        {/* Toolkit */}
+        <div className="mt-20">
+          <AnimationWrapper animation="fadeUp">
+            <div className="text-center max-w-2xl mx-auto">
+              <h3 className="font-display font-bold text-3xl md:text-4xl">Current Toolkit</h3>
+              <p className="mt-3 text-muted-foreground">
+                The technologies I'm currently mastering as I navigate the IT landscape.
+              </p>
+            </div>
+          </AnimationWrapper>
+
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {skills.map((skill, i) => (
+              <AnimationWrapper key={skill.name} animation="fadeUpScale" delay={150 + i * 100}>
+                <SkillCard skill={skill} />
+              </AnimationWrapper>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const SkillBarInner = ({ level, delay }: { level: number, delay: number }) => {
+const SkillCard = ({ skill }: { skill: typeof skills[number] }) => {
   const [width, setWidth] = useState(0);
-  
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setWidth(level);
-    }, delay);
-    
-    return () => clearTimeout(timer);
-  }, [level, delay]);
-  
+    const t = setTimeout(() => setWidth(skill.level), 300);
+    return () => clearTimeout(t);
+  }, [skill.level]);
+
   return (
-    <div 
-      className="skill-progress" 
-      style={{ width: `${width}%` }}
-    ></div>
+    <div className="surface-card p-6 text-center">
+      <div className="w-12 h-12 mx-auto rounded-lg bg-muted flex items-center justify-center border border-border">
+        <span className="font-mono font-bold text-primary text-sm">{skill.icon}</span>
+      </div>
+      <div className="mt-4 font-display font-semibold text-lg">{skill.name}</div>
+      <div className="mt-4 skill-bar">
+        <div className="skill-progress" style={{ width: `${width}%` }} />
+      </div>
+      <div className="mt-2 text-[11px] font-mono text-muted-foreground tracking-widest">
+        {skill.level}% PROFICIENCY
+      </div>
+    </div>
   );
 };
 
