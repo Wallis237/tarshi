@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import AnimationWrapper from './AnimationWrapper';
 import StaggeredAnimationGroup from './StaggeredAnimationGroup';
+import { useServices, useSkills } from '@/hooks/useContent';
 
-const skills = [
+const defaultSkills = [
   { name: "Python", level: 90, icon: "🐍" },
   { name: "JavaScript", level: 85, icon: "JS" },
   { name: "HTML / CSS", level: 95, icon: "◇" },
   { name: "Logic & Systems", level: 88, icon: "◆" },
 ];
 
-const services = [
+const defaultServices = [
   { num: "01", title: "UI/UX Strategy" },
   { num: "02", title: "Web Systems" },
   { num: "03", title: "Game Architecture" },
@@ -17,6 +18,16 @@ const services = [
 ];
 
 const SkillsSection = () => {
+  const { data: skillRows } = useSkills();
+  const { data: serviceRows } = useServices();
+  const skills = skillRows?.length
+    ? skillRows.map((s) => ({ name: s.name, level: s.level, icon: s.icon }))
+    : defaultSkills;
+  const services = serviceRows?.length
+    ? serviceRows.map((s) => ({ num: s.num, title: s.title }))
+    : defaultServices;
+
+
   return (
     <section id="skills" className="section-padding relative">
       <div className="container mx-auto px-6">
