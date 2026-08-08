@@ -1,13 +1,16 @@
 import { ArrowRight, Download } from "lucide-react";
 import AnimationWrapper from "./AnimationWrapper";
+import { useSiteSettings } from "@/hooks/useContent";
 
 const HeroSection = () => {
+  const { data: settings } = useSiteSettings();
   const stats = [
     { value: "2000+", label: "Global Reach" },
     { value: "3+", label: "Years Exp." },
     { value: "50+", label: "Projects" },
     { value: "100%", label: "Passion" },
   ];
+
 
   return (
     <section id="home" className="relative pt-28 md:pt-32 pb-16 overflow-hidden">
