@@ -11,10 +11,10 @@ const ContactSection = () => {
   const email = settings?.contact_email || "tarshiwilliams476@gmail.com";
   const location = settings?.location || "Douala, Cameroon";
   const links = {
-    linkedin: settings?.linkedin || socialLinks.linkedin,
-    github: settings?.github || socialLinks.github,
-    facebook: settings?.facebook || socialLinks.facebook,
-    instagram: settings?.instagram || socialLinks.instagram,
+    linkedin: settings?.linkedin || links.linkedin,
+    github: settings?.github || links.github,
+    facebook: settings?.facebook || links.facebook,
+    instagram: settings?.instagram || links.instagram,
   };
 
   const [formData, setFormData] = useState({
@@ -35,7 +35,7 @@ const ContactSection = () => {
     const body = encodeURIComponent(
       `Hello Tarshi,\n\n${formData.message}\n\n— ${formData.name}\n${formData.email}\nService: ${formData.service}`
     );
-    window.location.href = `mailto:tarshiwilliams476@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     toast({
       title: "Email client opened",
       description: "Your message has been prepared to send.",
@@ -44,10 +44,10 @@ const ContactSection = () => {
 
   const services = ["UI/UX Design", "Web Development", "Photography", "Branding", "Other"];
   const socials = [
-    { name: 'LinkedIn', icon: Linkedin, href: socialLinks.linkedin },
-    { name: 'GitHub', icon: Github, href: socialLinks.github },
-    { name: 'Facebook', icon: Facebook, href: socialLinks.facebook },
-    { name: 'Instagram', icon: Instagram, href: socialLinks.instagram },
+    { name: 'LinkedIn', icon: Linkedin, href: links.linkedin },
+    { name: 'GitHub', icon: Github, href: links.github },
+    { name: 'Facebook', icon: Facebook, href: links.facebook },
+    { name: 'Instagram', icon: Instagram, href: links.instagram },
   ];
 
   return (
@@ -69,13 +69,13 @@ const ContactSection = () => {
             </p>
             <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="mailto:tarshiwilliams476@gmail.com"
+                href={`mailto:${email}`}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-background text-foreground font-semibold text-sm hover:-translate-y-0.5 transition-transform"
               >
                 <Mail className="h-4 w-4" /> Email Me
               </a>
               <a
-                href={socialLinks.github}
+                href={links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary-foreground/30 font-semibold text-sm hover:bg-primary-foreground/10 transition-colors"
@@ -106,7 +106,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">Email Me</div>
-                    <a href="mailto:tarshiwilliams476@gmail.com" className="font-medium hover:text-primary transition-colors">
+                    <a href={`mailto:${email}`} className="font-medium hover:text-primary transition-colors">
                       tarshiwilliams476@gmail.com
                     </a>
                   </div>
@@ -117,7 +117,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">Location</div>
-                    <div className="font-medium">Douala, Cameroon</div>
+                    <div className="font-medium">{location}</div>
                   </div>
                 </div>
               </div>
