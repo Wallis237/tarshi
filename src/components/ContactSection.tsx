@@ -11,10 +11,10 @@ const ContactSection = () => {
   const email = settings?.contact_email || "tarshiwilliams476@gmail.com";
   const location = settings?.location || "Douala, Cameroon";
   const links = {
-    linkedin: settings?.linkedin || links.linkedin,
-    github: settings?.github || links.github,
-    facebook: settings?.facebook || links.facebook,
-    instagram: settings?.instagram || links.instagram,
+    linkedin: settings?.linkedin || socialLinks.linkedin,
+    github: settings?.github || socialLinks.github,
+    facebook: settings?.facebook || socialLinks.facebook,
+    instagram: settings?.instagram || socialLinks.instagram,
   };
 
   const [formData, setFormData] = useState({
@@ -107,7 +107,7 @@ const ContactSection = () => {
                   <div>
                     <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">Email Me</div>
                     <a href={`mailto:${email}`} className="font-medium hover:text-primary transition-colors">
-                      tarshiwilliams476@gmail.com
+                      {email}
                     </a>
                   </div>
                 </div>
