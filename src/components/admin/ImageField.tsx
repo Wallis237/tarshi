@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { supabase } from "@/components/../integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import { Loader2, Upload } from "lucide-react";
 
 const TEN_YEARS = 60 * 60 * 24 * 365 * 10;
