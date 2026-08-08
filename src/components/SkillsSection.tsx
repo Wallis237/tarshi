@@ -97,7 +97,7 @@ const SkillsSection = () => {
   );
 };
 
-const SkillCard = ({ skill }: { skill: typeof skills[number] }) => {
+const SkillCard = ({ skill }: { skill: { name: string; level: number; icon: string } }) => {
   const [width, setWidth] = useState(0);
   useEffect(() => {
     const t = setTimeout(() => setWidth(skill.level), 300);
