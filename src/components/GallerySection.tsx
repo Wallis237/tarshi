@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import AnimationWrapper from './AnimationWrapper';
+import { useGallery } from '@/hooks/useContent';
 
 interface GalleryItem {
-  id: number;
+  id: number | string;
   title: string;
   category: string;
   image: string;
 }
 
-const galleryItems: GalleryItem[] = [
+const fallbackItems: GalleryItem[] = [
   { id: 1, title: "Nature Photography", category: "Photography", image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80" },
   { id: 2, title: "Landscape", category: "Photography", image: "/lovable-uploads/e85332d2-9f30-40f5-9d44-f9bf93ebb34e.png" },
   { id: 3, title: "Brand Logo Design", category: "Graphic Design", image: "/lovable-uploads/3028df71-0167-4088-a78f-40507a4ea535.png" },
@@ -20,6 +21,11 @@ const galleryItems: GalleryItem[] = [
 
 const GallerySection = () => {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  const { data: rows } = useGallery();
+  const galleryItems: GalleryItem[] = rows?.length
+    ? rows.map((r) => ({ id: r.id, title: r.title, category: r.category, image: r.image }))
+    : fallbackItems;
+
 
   return (
     <section id="gallery" className="section-padding relative">

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Github } from "lucide-react";
 import AnimationWrapper from './AnimationWrapper';
+import { useProjects } from '@/hooks/useContent';
 
 interface Project {
-  id: number;
+  id: number | string;
   title: string;
   description: string;
   image: string;
@@ -14,7 +15,7 @@ interface Project {
   featured?: boolean;
 }
 
-const projects: Project[] = [
+const fallbackProjects: Project[] = [
   {
     id: 1,
     title: "E-Commerce Platform",
@@ -108,13 +109,31 @@ const categories = [
 
 const ProjectsSection = () => {
   const [filter, setFilter] = useState<string>("all");
+  const { data: rows } = useProjects();
+
+  const projects: Project[] = rows?.length
+    ? rows.map((r) => ({
+        id: r.id,
+        title: r.title,
+        description: r.description,
+        image: r.image,
+        category: r.categories ?? [],
+        demoLink: r.demo_link,
+        githubLink: r.github_link,
+        tags: r.tags ?? [],
+        featured: r.featured,
+      }))
+    : fallbackProjects;
+
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
 
   useEffect(() => {
     setFilteredProjects(
       filter === "all" ? projects : projects.filter((p) => p.category.includes(filter))
     );
-  }, [filter]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filter, rows]);
+
 
   return (
     <section id="projects" className="section-padding relative">

@@ -1,0 +1,16 @@
+{
+  "name": "Sir Wallis — Tarshi Williams Portfolio",
+  "short_name": "Sir Wallis",
+  "description": "Portfolio of Tarshi Williams — full-stack developer, designer and photographer.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#131313",
+  "theme_color": "#131313",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

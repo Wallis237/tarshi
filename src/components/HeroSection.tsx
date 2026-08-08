@@ -1,13 +1,16 @@
 import { ArrowRight, Download } from "lucide-react";
 import AnimationWrapper from "./AnimationWrapper";
+import { useSiteSettings } from "@/hooks/useContent";
 
 const HeroSection = () => {
+  const { data: settings } = useSiteSettings();
   const stats = [
     { value: "2000+", label: "Global Reach" },
     { value: "3+", label: "Years Exp." },
     { value: "50+", label: "Projects" },
     { value: "100%", label: "Passion" },
   ];
+
 
   return (
     <section id="home" className="relative pt-28 md:pt-32 pb-16 overflow-hidden">
@@ -29,16 +32,21 @@ const HeroSection = () => {
         {/* Headline */}
         <AnimationWrapper animation="fadeUp" trigger="load" delay={200}>
           <h1 className="font-display font-bold text-center text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight max-w-5xl mx-auto">
-            Empowering Brands<br />
-            Through <span className="accent-italic">Creative Solutions</span>
+            {settings?.hero_title ? (
+              settings.hero_title
+            ) : (
+              <>
+                Empowering Brands<br />
+                Through <span className="accent-italic">Creative Solutions</span>
+              </>
+            )}
           </h1>
         </AnimationWrapper>
 
         <AnimationWrapper animation="fadeUp" trigger="load" delay={350}>
           <p className="mt-8 text-center text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            From Cameroon to the world. I'm Tarshi Williams — a full-stack developer
-            crafting high-performance digital experiences with a fusion of precision
-            engineering and artistic mastery.
+            {settings?.hero_subtitle ||
+              "From Cameroon to the world. I'm Tarshi Williams — a full-stack developer crafting high-performance digital experiences with a fusion of precision engineering and artistic mastery."}
           </p>
         </AnimationWrapper>
 
