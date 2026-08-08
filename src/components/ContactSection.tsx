@@ -3,9 +3,20 @@ import { useToast } from "@/components/ui/use-toast";
 import { Github, Linkedin, Facebook, Instagram, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import AnimationWrapper from './AnimationWrapper';
 import { socialLinks } from "../pages/Index";
+import { useSiteSettings } from "@/hooks/useContent";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const { data: settings } = useSiteSettings();
+  const email = settings?.contact_email || "tarshiwilliams476@gmail.com";
+  const location = settings?.location || "Douala, Cameroon";
+  const links = {
+    linkedin: settings?.linkedin || socialLinks.linkedin,
+    github: settings?.github || socialLinks.github,
+    facebook: settings?.facebook || socialLinks.facebook,
+    instagram: settings?.instagram || socialLinks.instagram,
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
