@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Github } from "lucide-react";
 import AnimationWrapper from './AnimationWrapper';
+import { useProjects } from '@/hooks/useContent';
 
 interface Project {
-  id: number;
+  id: number | string;
   title: string;
   description: string;
   image: string;
@@ -14,7 +15,7 @@ interface Project {
   featured?: boolean;
 }
 
-const projects: Project[] = [
+const fallbackProjects: Project[] = [
   {
     id: 1,
     title: "E-Commerce Platform",
