@@ -63,9 +63,14 @@ const TableEditor = ({ table, queryKey, fields, rows, titleKey, emptyRow }: Tabl
     void qc.invalidateQueries({ queryKey: [queryKey] });
   };
 
+  const [adding, setAdding] = useState(false);
+
   const add = async () => {
+    setAdding(true);
     const { error } = await supabase.from(table as never).insert(emptyRow as never);
+    setAdding(false);
     if (error) return toast.error(error.message);
+    toast.success("Added — scroll down to edit it");
     void qc.invalidateQueries({ queryKey: [queryKey] });
   };
 
@@ -133,9 +138,17 @@ const TableEditor = ({ table, queryKey, fields, rows, titleKey, emptyRow }: Tabl
 
   return (
     <div className="space-y-5">
-      <PrimaryButton onClick={add}>
-        <Plus className="w-4 h-4" /> Add new
+      <PrimaryButton onClick={add} disabled={adding}>
+        <Plus className="w-4 h-4" /> {adding ? "Adding…" : "Add new"}
       </PrimaryButton>
+
+      {rows.length === 0 && (
+        <p className="text-sm text-muted-foreground">
+          Nothing here yet — use “Add new” to create your first entry.
+        </p>
+      )}
+
+
 
       {rows.map((row) => (
         <AdminCard key={row.id as string}>
