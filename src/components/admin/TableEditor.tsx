@@ -63,9 +63,14 @@ const TableEditor = ({ table, queryKey, fields, rows, titleKey, emptyRow }: Tabl
     void qc.invalidateQueries({ queryKey: [queryKey] });
   };
 
+  const [adding, setAdding] = useState(false);
+
   const add = async () => {
+    setAdding(true);
     const { error } = await supabase.from(table as never).insert(emptyRow as never);
+    setAdding(false);
     if (error) return toast.error(error.message);
+    toast.success("Added — scroll down to edit it");
     void qc.invalidateQueries({ queryKey: [queryKey] });
   };
 
