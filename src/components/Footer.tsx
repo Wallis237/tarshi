@@ -9,7 +9,6 @@ const Footer = () => {
     { name: 'LinkedIn', icon: Linkedin, href: socialLinks.linkedin },
     { name: 'Facebook', icon: Facebook, href: socialLinks.facebook },
     { name: 'Instagram', icon: Instagram, href: socialLinks.instagram },
-    { name: 'Tiktok', icon: Tiktok, href: socialLinks.tiktok },
   ];
 
   return (
