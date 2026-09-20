@@ -9,6 +9,7 @@ const Footer = () => {
     { name: 'LinkedIn', icon: Linkedin, href: socialLinks.linkedin },
     { name: 'Facebook', icon: Facebook, href: socialLinks.facebook },
     { name: 'Instagram', icon: Instagram, href: socialLinks.instagram },
+    { name: 'Tiktok', icon: Tiktok, href: socialLinks.tiktok },
   ];
 
   return (
@@ -20,7 +21,7 @@ const Footer = () => {
               CYRECH TECH
             </a>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-              Building the future with precision, passion, and purpose from Douala, Cameroon.
+              Building the future with precision, passion, and purpose from Yaounde, Cameroon.
             </p>
           </div>
 
@@ -61,7 +62,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground font-mono">
           <span>© {currentYear} Cyrech Tech. Built with Precision.</span>
-          <span>Douala, Cameroon</span>
+          <span>Yaounde, Cameroon</span>
         </div>
       </div>
     </footer>
