@@ -33,7 +33,7 @@ const ContactSection = () => {
     e.preventDefault();
     const subject = encodeURIComponent(`[${formData.service}] Inquiry from ${formData.name}`);
     const body = encodeURIComponent(
-      `Hello Tarshi,\n\n${formData.message}\n\n— ${formData.name}\n${formData.email}\nService: ${formData.service}`
+      `Hello Cyrech Tech,\n\n${formData.message}\n\n— ${formData.name}\n${formData.email}\nService: ${formData.service}`
     );
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     toast({
@@ -64,7 +64,7 @@ const ContactSection = () => {
               Let's Build the Future Together.
             </h2>
             <p className="relative mt-5 text-primary-foreground/80 max-w-xl mx-auto">
-              I'm excited to connect with like-minded individuals, share ideas, and work on
+              We're excited to connect with like-minded people, share ideas, and work on
               projects that make a difference.
             </p>
             <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -72,7 +72,7 @@ const ContactSection = () => {
                 href={`mailto:${email}`}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-background text-foreground font-semibold text-sm hover:-translate-y-0.5 transition-transform"
               >
-                <Mail className="h-4 w-4" /> Email Me
+                <Mail className="h-4 w-4" /> Email Us
               </a>
               <a
                 href={links.github}
@@ -80,7 +80,7 @@ const ContactSection = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary-foreground/30 font-semibold text-sm hover:bg-primary-foreground/10 transition-colors"
               >
-                Follow My Journey <ArrowUpRight className="h-4 w-4" />
+                Follow Our Journey <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -96,7 +96,7 @@ const ContactSection = () => {
               </h3>
               <p className="mt-5 text-muted-foreground max-w-md">
                 Whether you have a specific project in mind or just want to chat about the
-                latest in tech, I'm always open to new connections and collaborations.
+                latest in tech, we're always open to new connections and collaborations.
               </p>
 
               <div className="mt-8 space-y-5">
@@ -105,7 +105,7 @@ const ContactSection = () => {
                     <Mail className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">Email Me</div>
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">Email Us</div>
                     <a href={`mailto:${email}`} className="font-medium hover:text-primary transition-colors">
                       {email}
                     </a>

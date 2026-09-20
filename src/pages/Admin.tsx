@@ -102,7 +102,7 @@ const Admin = () => {
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 bg-background/90 backdrop-blur-xl border-b border-border">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between gap-4">
-          <span className="font-display font-bold text-primary tracking-tight">SIR WALLIS · ADMIN</span>
+          <span className="font-display font-bold text-primary tracking-tight">CYRECH TECH · ADMIN</span>
           <div className="flex items-center gap-2">
             <Link to="/" className="text-xs font-mono uppercase tracking-widest text-muted-foreground hover:text-primary">
               View site

@@ -60,7 +60,7 @@ const Navbar = () => {
             className="flex items-center gap-2 group"
           >
             <span className="font-display font-bold text-primary text-xl tracking-tight">
-              SIR WALLIS
+              CYRECH TECH
             </span>
           </a>
 
@@ -88,7 +88,7 @@ const Navbar = () => {
               onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
               className="hidden md:inline-flex btn-lime !py-2 !px-5 text-sm"
             >
-              Hire Me
+              Work With Us
             </a>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -125,7 +125,7 @@ const Navbar = () => {
             onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
             className="btn-lime mt-3 self-start"
           >
-            Hire Me
+            Work With Us
           </a>
         </nav>
       </div>
