@@ -79,7 +79,7 @@ const SkillsSection = () => {
             <div className="text-center max-w-2xl mx-auto">
               <h3 className="font-display font-bold text-3xl md:text-4xl">Current Toolkit</h3>
               <p className="mt-3 text-muted-foreground">
-                The technologies I'm currently mastering as I navigate the IT landscape.
+                The technologies we use and continually master across the IT landscape.
               </p>
             </div>
           </AnimationWrapper>

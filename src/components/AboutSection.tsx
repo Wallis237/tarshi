@@ -29,9 +29,9 @@ const AboutSection = () => {
 
             <AnimationWrapper animation="fadeUp" delay={300}>
               <p className="mt-6 text-muted-foreground leading-relaxed max-w-lg">
-                Hello! I am Tarshi Williams, a passionate and ambitious individual from
-                Cameroon with a dream of becoming a Software Engineer and Website Developer.
-                My journey is a synthesis of Information Technology, Physics, and Chemistry.
+                Cyrech Tech is a passionate and ambitious creative technology brand from
+                Cameroon, focused on software engineering and website development. Our journey
+                brings together Information Technology, Physics, and Chemistry.
               </p>
             </AnimationWrapper>
 
@@ -53,7 +53,7 @@ const AboutSection = () => {
             <div className="relative rounded-3xl overflow-hidden border border-border aspect-[4/5] max-w-md ml-auto">
               <img
                 src="/lovable-uploads/ca5a9825-0c31-454e-953e-a5497d0b78ac.png"
-                alt="Tarshi Williams"
+                alt="Cyrech Tech founder"
                 className="w-full h-full object-cover grayscale-[30%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />

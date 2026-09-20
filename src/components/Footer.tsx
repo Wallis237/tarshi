@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div>
             <a href="#home" className="font-display font-bold text-primary text-2xl tracking-tight">
-              SIR WALLIS
+              CYRECH TECH
             </a>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
               Building the future with precision, passion, and purpose from Douala, Cameroon.
@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground font-mono">
-          <span>© {currentYear} Tarshi Williams. Built with Precision.</span>
+          <span>© {currentYear} Cyrech Tech. Built with Precision.</span>
           <span>Douala, Cameroon</span>
         </div>
       </div>

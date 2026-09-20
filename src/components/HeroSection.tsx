@@ -46,7 +46,7 @@ const HeroSection = () => {
         <AnimationWrapper animation="fadeUp" trigger="load" delay={350}>
           <p className="mt-8 text-center text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             {settings?.hero_subtitle ||
-              "From Cameroon to the world. I'm Tarshi Williams — a full-stack developer crafting high-performance digital experiences with a fusion of precision engineering and artistic mastery."}
+              "From Cameroon to the world. Cyrech Tech crafts high-performance digital experiences through precision engineering and artistic mastery."}
           </p>
         </AnimationWrapper>
 
@@ -80,7 +80,7 @@ const HeroSection = () => {
           </div>
         </AnimationWrapper>
 
-        {/* Download CV pill */}
+        {/* Company profile link */}
         <AnimationWrapper animation="fadeUp" delay={800}>
           <div className="mt-10 flex justify-center">
             <a
@@ -88,7 +88,7 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors font-mono"
             >
               <Download className="h-3.5 w-3.5" />
-              Download CV
+              Company Profile
             </a>
           </div>
         </AnimationWrapper>
