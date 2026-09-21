@@ -10,10 +10,10 @@ const AboutSection = () => {
   ];
   const teamMembers = [
     { name: "Ebua Glenn Ndoh", role: "Chief Executive Officer", image: "/lovable-uploads/ichebe.jpg" },
-    { name: "Tarshi Williams", role: "Chief Project Manager", image: "/lovable-uploads/IMG-20250501-WA0034.jpg" },
-    { name: "Akimbong Chercy", role: "Human Resources", image: "/lovable-uploads/bfecc9f4-5d72-4357-8d01-57d515ca89b0.png" },
+    { name: "Tarshi Williams", role: "Chief Project Manager", image: "/lovable-uploads/e85332d2-9f30-40f5-9d44-f9bf93ebb34e.png" },
+    { name: "Akimbong Chercy", role: "Human Resources", image: "" },
     { name: "Ewe Bryan", role: "Head of Engineering", image: "/lovable-uploads/bryanhoe.jpg" },
-    { name: "Ebua Ford Buo", role: "Chief Executive Officer", image: "/lovable-uploads/1745240691610.jpg" },
+    { name: "Ebua Ford Buo", role: "Chief Operation Officer", image: "" },
   ];
 
   return (
@@ -66,7 +66,7 @@ const AboutSection = () => {
             <AnimationWrapper animation="fadeUpScale" delay={300}><div className="surface-card p-8 h-full"><div className="eyebrow">Interests</div><ul className="mt-6 space-y-4">{interests.map((interest) => <li key={interest.label} className="flex items-center justify-between pb-4 border-b border-border last:border-0 last:pb-0"><span className="font-medium">{interest.label}</span><span className="text-lg">{interest.icon}</span></li>)}</ul></div></AnimationWrapper>
           </div>
           <div className="mt-6 grid lg:grid-cols-3 gap-6">
-            <AnimationWrapper animation="fadeUpScale" delay={150}><div className="surface-card overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-full relative"><img src="/lovable-uploads/it-competitions.jpg" alt="IT Competitions" className="absolute inset-0 w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" /><div className="absolute bottom-0 left-0 p-6"><div className="font-display font-bold text-xl">IT Competitions</div><div className="text-sm text-muted-foreground">Solving real-world problems through logic.</div></div></div></AnimationWrapper>
+            <AnimationWrapper animation="fadeUpScale" delay={150}><div className="surface-card overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-full relative"><img src="/lovable-uploads/1745240691610.jpg" alt="IT Competitions" className="absolute inset-0 w-full h-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" /><div className="absolute bottom-0 left-0 p-6"><div className="font-display font-bold text-xl">IT Competitions</div><div className="text-sm text-muted-foreground">Solving real-world problems through logic.</div></div></div></AnimationWrapper>
             <AnimationWrapper animation="fadeUpScale" delay={300}><div className="surface-card p-8 h-full"><div className="eyebrow">Short-term Goals</div><p className="mt-4 text-muted-foreground leading-relaxed text-sm">Master programming languages like Python, Java, C++, and JavaScript. Build and host functional applications that showcase technical mastery.</p></div></AnimationWrapper>
             <AnimationWrapper animation="fadeUpScale" delay={450}><div className="surface-card p-8 h-full"><div className="eyebrow">Long-term Goals</div><p className="mt-4 text-muted-foreground leading-relaxed text-sm">Become a professional Software Engineer. Create impactful software and inspire others in Cameroon to embrace ICT innovation.</p></div></AnimationWrapper>
           </div>
