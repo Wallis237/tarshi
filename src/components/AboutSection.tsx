@@ -15,27 +15,27 @@ const AboutSection = () => {
     {
       name: "Ebua Glenn Ndoh",
       role: "Chief Executive Officer",
-      image: "/public/lovable-uploads/ichebe.jpg",
+      image: "/lovable-uploads/ichebe.jpg",
     },
     {
       name: "Tarshi Williams",
       role: "Chief Project Manager",
-      image: "/upload/tarshi-williams.jpg",
+      image: "/lovable-uploads/IMG-20250501-WA0034.jpg",
     },
     {
       name: "Akimbong Chercy",
       role: "Human Resources",
-      image: "/upload/akimbong-chercy.jpg",
+      image: "/lovable-uploads/bfecc9f4-5d72-4357-8d01-57d515ca89b0.png",
     },
     {
       name: "Ewe Bryan",
       role: "Head of Engineering",
-      image: "/upload/ewe-bryan.jpg",
+      image: "/lovable-uploads/bryanhoe.jpg",
     },
     {
       name: "Ebua Ford Buo",
       role: "Chief Executive Officer",
-      image: "/upload/ebua-ford-buo.jpg",
+      image: "/lovable-uploads/1745240691610.jpg",
     },
   ];
 
@@ -145,7 +145,7 @@ const AboutSection = () => {
 
                     {/* Role Badge */}
                     <div className="absolute bottom-4 left-4 right-4">
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md border border-border text-[10px] font-mono font-semibold uppercase tracking-widest text-primary">
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md border border-border text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-foreground/90">
                         {member.role}
                       </span>
                     </div>
