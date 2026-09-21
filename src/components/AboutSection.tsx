@@ -2,7 +2,7 @@ import AnimationWrapper from "./AnimationWrapper";
 import { ArrowUpRight } from "lucide-react";
 
 const AboutSection = () => {
-  const traits = ["Physics Enthusiast", "Chemistry Lover", "Software Aspirant"];
+  const traits = ["Tech Enthusiast", "Innovation Lover", "Software Aspirant"];
   const interests = [
     { label: "Game Design", icon: "🎮" },
     { label: "Physics Simulations", icon: "🔬" },
@@ -10,7 +10,7 @@ const AboutSection = () => {
   ];
   const teamMembers = [
     { name: "Ebua Glenn Ndoh", role: "Chief Executive Officer", image: "/lovable-uploads/ichebe.jpg" },
-    { name: "Tarshi Williams", role: "Chief Project Manager", image: "/lovable-uploads/e85332d2-9f30-40f5-9d44-f9bf93ebb34e.png" },
+    { name: "Tarshi Williams", role: "Chief Project Manager", image: "/lovable-uploads/" },
     { name: "Akimbong Chercy", role: "Human Resources", image: "" },
     { name: "Ewe Bryan", role: "Head of Engineering", image: "/lovable-uploads/bryanhoe.jpg" },
     { name: "Ebua Ford Buo", role: "Chief Operation Officer", image: "" },
