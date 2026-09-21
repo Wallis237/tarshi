@@ -10,7 +10,7 @@ const AboutSection = () => {
   ];
   const teamMembers = [
     { name: "Ebua Glenn Ndoh", role: "Chief Executive Officer", image: "/lovable-uploads/ichebe.jpg" },
-    { name: "Tarshi Williams", role: "Chief Project Manager", image: "/lovable-uploads/" },
+    { name: "Tarshi Williams", role: "Chief Project Manager", image: "/lovable-uploads/ca5a9825-0c31-454e-953e-a5497d0b78ac.png" },
     { name: "Akimbong Chercy", role: "Human Resources", image: "" },
     { name: "Ewe Bryan", role: "Head of Engineering", image: "/lovable-uploads/bryanhoe.jpg" },
     { name: "Ebua Ford Buo", role: "Chief Operation Officer", image: "" },
