@@ -15,7 +15,7 @@ const AboutSection = () => {
     {
       name: "Ebua Glenn Ndoh",
       role: "Chief Executive Officer",
-      image: "/upload/ebua-glenn-ndoh.jpg",
+      image: "/public/lovable-uploads/ichebe.jpg",
     },
     {
       name: "Tarshi Williams",
