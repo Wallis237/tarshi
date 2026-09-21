@@ -114,7 +114,7 @@ const AboutSection = () => {
             <AnimationWrapper animation="fadeUpScale" delay={150}>
               <div className="surface-card overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-full relative">
                 <img
-                  src="/lovable-uploads/033930a6-c382-4cc3-ba0e-9f3e9c7bfd31.png"
+                  src=""
                   alt="IT Competitions"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
