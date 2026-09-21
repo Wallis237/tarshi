@@ -149,22 +149,7 @@ const ProjectsSection = () => {
               </h2>
             </div>
           </AnimationWrapper>
-          <AnimationWrapper animation="fadeUp" delay={150}>
-            <div className="flex gap-8 lg:justify-end">
-              <div>
-                <div className="font-display font-bold text-4xl text-primary">19</div>
-                <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground mt-1">
-                  Repositories
-                </div>
-              </div>
-              <div>
-                <div className="font-display font-bold text-4xl text-primary">15</div>
-                <div className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground mt-1">
-                  Followers
-                </div>
-              </div>
-            </div>
-          </AnimationWrapper>
+
         </div>
 
         {/* Filters */}
