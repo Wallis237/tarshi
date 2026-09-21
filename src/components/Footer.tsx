@@ -16,8 +16,13 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div>
-            <a href="#home" className="font-display font-bold text-primary text-2xl tracking-tight">
-              CYRECH TECH
+            <a href="#home" className="flex items-center gap-3 font-display font-bold text-primary text-2xl tracking-tight">
+              <img
+                src="/lovable-uploads/logo.jpg"
+                alt="Cyrech Tech logo"
+                className="h-10 w-10 rounded-lg object-cover border border-border/50 bg-background/50 shadow-sm"
+              />
+              <span>CYRECH TECH</span>
             </a>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
               Building the future with precision, passion, and purpose from Yaounde, Cameroon.

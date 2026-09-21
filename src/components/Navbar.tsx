@@ -57,8 +57,13 @@ const Navbar = () => {
           <a
             href="#home"
             onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-3 group"
           >
+            <img
+              src="/lovable-uploads/logo.jpg"
+              alt="Cyrech Tech logo"
+              className="h-9 w-9 rounded-lg object-cover border border-border/50 bg-background/50 shadow-sm"
+            />
             <span className="font-display font-bold text-primary text-xl tracking-tight">
               CYRECH TECH
             </span>
