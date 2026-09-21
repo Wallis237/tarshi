@@ -62,6 +62,77 @@ const AboutSection = () => {
         </div>
 
         {/* IT Journey */}
+        {/* Team & Leadership */}
+<div className="mt-24">
+  <AnimationWrapper animation="fadeUp">
+    <h3 className="font-display font-bold text-3xl md:text-4xl">
+      The Team
+      <span className="block w-16 h-1 bg-primary mt-3 rounded-full" />
+    </h3>
+  </AnimationWrapper>
+
+  <AnimationWrapper animation="fadeUp" delay={150}>
+    <p className="mt-4 text-muted-foreground max-w-2xl leading-relaxed">
+      Cyrech Tech is driven by a growing team of ambitious individuals
+      combining leadership, project management, human resources, and
+      engineering to build meaningful technology solutions.
+    </p>
+  </AnimationWrapper>
+
+  <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {[
+      {
+        name: "Ebua Glenn Ndoh",
+        role: "Chief Executive Officer",
+        initials: "EG",
+      },
+      {
+        name: "You",
+        role: "Chief Project Manager",
+        initials: "CP",
+      },
+      {
+        name: "Akimbong Chercy",
+        role: "Human Resources",
+        initials: "AC",
+      },
+      {
+        name: "Ewe Bryan",
+        role: "Head of Engineering",
+        initials: "EB",
+      },
+      {
+        name: "Ebua Ford Buo",
+        role: "Chief Executive Officer",
+        initials: "EF",
+      },
+    ].map((member, index) => (
+      <AnimationWrapper
+        key={member.name}
+        animation="fadeUpScale"
+        delay={150 + index * 100}
+      >
+        <div className="surface-card p-6 h-full group hover:border-primary/40 transition-colors">
+          <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+            <span className="font-display font-bold text-primary">
+              {member.initials}
+            </span>
+          </div>
+
+          <div className="mt-6">
+            <div className="text-xs font-mono uppercase tracking-widest text-primary">
+              {member.role}
+            </div>
+
+            <h4 className="mt-2 font-display font-bold text-xl">
+              {member.name}
+            </h4>
+          </div>
+        </div>
+      </AnimationWrapper>
+    ))}
+  </div>
+</div>
         <div className="mt-24">
           <AnimationWrapper animation="fadeUp">
             <h3 className="font-display font-bold text-3xl md:text-4xl">
