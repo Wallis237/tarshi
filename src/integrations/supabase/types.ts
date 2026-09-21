@@ -92,6 +92,7 @@ export type Database = {
       services: {
         Row: {
           created_at: string
+          description: string
           id: string
           num: string
           sort_order: number
@@ -100,6 +101,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          description?: string
           id?: string
           num?: string
           sort_order?: number
@@ -108,6 +110,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          description?: string
           id?: string
           num?: string
           sort_order?: number
@@ -119,41 +122,56 @@ export type Database = {
       site_settings: {
         Row: {
           about_text: string
+          competition_image: string
           contact_email: string
+          content: Json
           facebook: string
           github: string
+          hero_stats: Json
           hero_subtitle: string
           hero_title: string
           id: boolean
           instagram: string
           linkedin: string
           location: string
+          logo_url: string
+          phone_number: string
           updated_at: string
         }
         Insert: {
           about_text?: string
+          competition_image?: string
           contact_email?: string
+          content?: Json
           facebook?: string
           github?: string
+          hero_stats?: Json
           hero_subtitle?: string
           hero_title?: string
           id?: boolean
           instagram?: string
           linkedin?: string
           location?: string
+          logo_url?: string
+          phone_number?: string
           updated_at?: string
         }
         Update: {
           about_text?: string
+          competition_image?: string
           contact_email?: string
+          content?: Json
           facebook?: string
           github?: string
+          hero_stats?: Json
           hero_subtitle?: string
           hero_title?: string
           id?: boolean
           instagram?: string
           linkedin?: string
           location?: string
+          logo_url?: string
+          phone_number?: string
           updated_at?: string
         }
         Relationships: []
@@ -183,6 +201,39 @@ export type Database = {
           id?: string
           level?: number
           name?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      team_members: {
+        Row: {
+          created_at: string
+          description: string
+          id: string
+          image: string
+          name: string
+          role: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          id?: string
+          image?: string
+          name?: string
+          role?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          id?: string
+          image?: string
+          name?: string
+          role?: string
           sort_order?: number
           updated_at?: string
         }
