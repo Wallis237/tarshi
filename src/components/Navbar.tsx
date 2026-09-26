@@ -1,137 +1,90 @@
 import { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from './ThemeToggle';
+import { useSiteText } from '@/hooks/useContent';
+
+export const useNavLinks = () => {
+  const { t } = useSiteText();
+  return [
+    { name: t('nav_home'), to: '/' },
+    { name: t('nav_work'), to: '/work' },
+    { name: t('nav_services'), to: '/services' },
+    { name: t('nav_about'), to: '/about' },
+    { name: t('nav_contact'), to: '/contact' },
+  ];
+};
 
 const Navbar = () => {
+  const { t } = useSiteText();
+  const navLinks = useNavLinks();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-
-      // Determine active section
-      const sections = ['home', 'about', 'skills', 'projects', 'gallery', 'contact'];
-      const pos = window.scrollY + window.innerHeight / 3;
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
-          setActiveSection(id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Work', href: '#projects' },
-    { name: 'Services', href: '#skills' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
-  const handleNavClick = (href: string) => {
-    setIsMobileMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const isActive = (href: string) => `#${activeSection}` === href;
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-background/85 backdrop-blur-xl border-b border-border/60'
-          : 'bg-transparent'
+        isScrolled || open ? 'bg-background/85 backdrop-blur-xl border-b border-border/60' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
-            className="flex items-center gap-3 group"
-          >
+          <Link to="/" className="flex items-center gap-3">
             <img
-              src="/lovable-uploads/logo.jpg"
-              alt="Cyrech Tech logo"
-              className="h-9 w-9 rounded-lg object-cover border border-border/50 bg-background/50 shadow-sm"
+              src={t('logo_image')}
+              alt={`${t('brand_name')} logo`}
+              className="h-9 w-9 rounded-lg object-contain border border-border/50 bg-background/50"
             />
-            <span className="font-display font-bold text-primary text-xl tracking-tight">
-              CYRECH TECH
+            <span className="font-display font-bold text-primary text-xl tracking-tight uppercase">
+              {t('brand_name')}
             </span>
-          </a>
+          </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
-              >
-                {link.name}
-              </a>
+            {navLinks.map((l) => (
+              <NavLink key={l.to} to={l.to} end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+                {l.name}
+              </NavLink>
             ))}
           </nav>
 
-          {/* Right controls */}
           <div className="flex items-center gap-2">
-            <div className="hidden sm:block">
-              <ThemeToggle />
-            </div>
-            <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-              className="hidden md:inline-flex btn-lime !py-2 !px-5 text-sm"
-            >
-              Work With Us
-            </a>
+            <div className="hidden sm:block"><ThemeToggle /></div>
+            <Link to="/contact" className="hidden md:inline-flex btn-lime !py-2 !px-5 text-sm">{t('nav_cta')}</Link>
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setOpen(!open)}
               className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-border text-foreground"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              {open ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        } bg-background/95 backdrop-blur-xl border-b border-border`}
-      >
+      <div className={`md:hidden overflow-hidden transition-all duration-500 ${open ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0'}`}>
         <nav className="flex flex-col py-4 px-6 gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-              className={`py-3 text-base font-medium transition-colors ${
-                isActive(link.href) ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
-              }`}
+          {navLinks.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end
+              className={({ isActive }) => `py-3 text-base font-medium transition-colors ${isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
             >
-              {link.name}
-            </a>
+              {l.name}
+            </NavLink>
           ))}
-          <a
-            href="#contact"
-            onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-            className="btn-lime mt-3 self-start"
-          >
-            Work With Us
-          </a>
+          <Link to="/contact" className="btn-lime mt-3 self-start">{t('nav_cta')}</Link>
         </nav>
       </div>
     </header>
